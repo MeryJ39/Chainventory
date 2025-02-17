@@ -1,89 +1,86 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import useAuth from "../hooks/useAuth";
-import { AuthContext } from "../context/authContext";
+import { useState, useEffect } from "react";
+
+const API_USERS = "http://localhost:5000/api/users";
+const API_ROLES = "http://localhost:5000/api/roles";
 
 const useUsers = () => {
-  const { token } = useContext(AuthContext);
-  const { register } = useAuth();
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [roles, setRoles] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   // Obtener todos los usuarios
   const fetchUsers = async () => {
-    setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/users", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setUsers(response.data);
+      setLoading(true);
+      const response = await fetch(API_USERS);
+      const data = await response.json();
+      setUsers(data);
     } catch (err) {
-      setError(err.response?.data?.message || "Error al obtener usuarios");
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  // Registrar un nuevo usuario
-  const createUser = async (username, email, password, roleName) => {
-    await register(username, email, password, roleName);
-    fetchUsers(); // Actualizar la lista de usuarios
-  };
-
-  // Obtener usuario por ID
-  const getUserById = async (userId) => {
+  // Obtener todos los roles
+  const fetchRoles = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/api/users/${userId}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      return response.data;
+      const response = await fetch(API_ROLES);
+      const data = await response.json();
+      setRoles(data);
     } catch (err) {
-      setError(err.response?.data?.message || "Error al obtener usuario");
+      setError(err.message);
     }
   };
 
-  // Actualizar usuario
-  const updateUser = async (userId, userData) => {
+  // Crear un usuario
+  const createUser = async (user) => {
     try {
-      await axios.put(`http://localhost:5000/api/users/${userId}`, userData, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await fetch(API_USERS, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
       });
-      fetchUsers(); // Refrescar lista de usuarios
+      if (!response.ok) throw new Error("Error al crear usuario");
+      fetchUsers();
     } catch (err) {
-      setError(err.response?.data?.message || "Error al actualizar usuario");
+      setError(err.message);
     }
   };
 
-  // Eliminar usuario
-  const deleteUser = async (userId) => {
+  // Actualizar un usuario
+  const updateUser = async (id, updatedUser) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${userId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+      const response = await fetch(`${API_USERS}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedUser),
       });
-      fetchUsers(); // Refrescar lista de usuarios
+      if (!response.ok) throw new Error("Error al actualizar usuario");
+      fetchUsers();
     } catch (err) {
-      setError(err.response?.data?.message || "Error al eliminar usuario");
+      setError(err.message);
     }
   };
 
-  return {
-    users,
-    loading,
-    error,
-    fetchUsers,
-    createUser,
-    getUserById,
-    updateUser,
-    deleteUser,
+  // Eliminar un usuario
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(`${API_USERS}/${id}`, { method: "DELETE" });
+      if (!response.ok) throw new Error("Error al eliminar usuario");
+      fetchUsers();
+    } catch (err) {
+      setError(err.message);
+    }
   };
+
+  useEffect(() => {
+    fetchUsers();
+    fetchRoles();
+  }, []);
+
+  return { users, roles, loading, error, createUser, updateUser, deleteUser };
 };
 
 export default useUsers;

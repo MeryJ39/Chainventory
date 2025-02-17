@@ -185,16 +185,14 @@ export function SidebarWithBurgerMenu() {
                     </ListItemPrefix>
                     Animales
                   </ListItem>
-                  <ListItem
-                    onClick={() => handleNavigate("dashboard/movimientos")}
-                  >
+                  <ListItem onClick={() => handleNavigate("dashboard/ventas")}>
                     <ListItemPrefix>
                       <ArrowsRightLeftIcon
                         strokeWidth={3}
                         className="w-5 h-3"
                       />
                     </ListItemPrefix>
-                    Movimientos
+                    Ventas
                   </ListItem>
                   <ListItem
                     onClick={() => handleNavigate("dashboard/vacunaciones")}

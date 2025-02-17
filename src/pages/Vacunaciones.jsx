@@ -1,5 +1,5 @@
 //Registro y seguimiento de vacunaciones del ganado.
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -13,206 +13,188 @@ import {
   Option,
 } from "@material-tailwind/react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import useVaccinations from "../hooks/useVaccinations";
 
 const Vacunaciones = () => {
-  const [vacunaciones, setVacunaciones] = useState([
-    // Datos de ejemplo
-    {
-      id_vacunacion: "1",
-      id_producto: "1", // Reemplaza con IDs de productos reales (ganado)
-      fecha_vacunacion: "2024-07-27 09:00",
-      tipo_vacuna: "FMD",
-      dosis_administrada: 2.0,
-      fecha_proxima_dosis: "2024-10-27",
-      veterinario_responsable: "Dr. Juan Pérez",
-      observaciones: "Vacunación exitosa",
-    },
-  ]);
+  const {
+    vaccinations,
+    loading,
+    error,
+    fetchVaccinations,
+    addVaccination,
+    updateVaccination,
+    deleteVaccination,
+  } = useVaccinations();
 
-  const [nuevaVacunacion, setNuevaVacunacion] = useState({
-    id_producto: "",
-    fecha_vacunacion: "",
+  const [newVaccination, setNewVaccination] = useState({
+    id_vacuna: "",
+    fecha_registro: "",
+    id_hembra: "",
+    especie: "",
+    raza: "",
+    edad: "",
     tipo_vacuna: "",
     dosis_administrada: "",
     fecha_proxima_dosis: "",
-    veterinario_responsable: "",
+    veterinario: "",
     observaciones: "",
+    id_animal: "",
   });
 
-  const handleInputChange = (e) => {
-    setNuevaVacunacion({ ...nuevaVacunacion, [e.target.name]: e.target.value });
+  useEffect(() => {
+    fetchVaccinations();
+  }, []);
+
+  const handleChange = (e) => {
+    setNewVaccination({ ...newVaccination, [e.target.name]: e.target.value });
   };
 
-  const agregarVacunacion = () => {
-    setVacunaciones([...vacunaciones, nuevaVacunacion]);
-    setNuevaVacunacion({
-      // Limpia el formulario
-      id_producto: "",
-      fecha_vacunacion: "",
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await addVaccination(newVaccination);
+    setNewVaccination({
+      id_vacuna: "",
+      fecha_registro: "",
+      id_hembra: "",
+      especie: "",
+      raza: "",
+      edad: "",
       tipo_vacuna: "",
       dosis_administrada: "",
       fecha_proxima_dosis: "",
-      veterinario_responsable: "",
+      veterinario: "",
       observaciones: "",
+      id_animal: "",
     });
-  };
-
-  const eliminarVacunacion = (id) => {
-    setVacunaciones(
-      vacunaciones.filter((vacunacion) => vacunacion.id_vacunacion !== id)
-    );
   };
 
   return (
     <Card>
-      <CardHeader variant="gradient" color="blue" className="mb-4">
-        <Typography variant="h6" color="white">
-          Gestión de Vacunaciones
-        </Typography>
+      <CardHeader>
+        <Typography variant="h5">Registro de Vacunaciones</Typography>
       </CardHeader>
       <CardBody>
-        {/* Formulario para agregar vacunaciones */}
-        <Typography variant="h5" color="blue" className="mb-4">
-          Agregar Vacunación
-        </Typography>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Select
-            label="Animal (Producto)"
-            name="id_producto"
-            value={nuevaVacunacion.id_producto}
-            onChange={handleInputChange}
-          >
-            <Option value="1">Vaca Angus</Option>{" "}
-            {/* Reemplaza con opciones de animales reales */}
-            {/* ... más opciones de animales */}
-          </Select>
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
           <Input
-            type="datetime-local"
-            label="Fecha de Vacunación"
-            name="fecha_vacunacion"
-            value={nuevaVacunacion.fecha_vacunacion}
-            onChange={handleInputChange}
+            label="ID Vacuna"
+            name="id_vacuna"
+            value={newVaccination.id_vacuna}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            label="Fecha Registro"
+            name="fecha_registro"
+            type="date"
+            value={newVaccination.fecha_registro}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            label="ID Hembra"
+            name="id_hembra"
+            value={newVaccination.id_hembra}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            label="Especie"
+            name="especie"
+            value={newVaccination.especie}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            label="Raza"
+            name="raza"
+            value={newVaccination.raza}
+            onChange={handleChange}
+            required
+          />
+          <Input
+            label="Edad"
+            name="edad"
+            type="number"
+            value={newVaccination.edad}
+            onChange={handleChange}
+            required
           />
           <Input
             label="Tipo de Vacuna"
             name="tipo_vacuna"
-            value={nuevaVacunacion.tipo_vacuna}
-            onChange={handleInputChange}
+            value={newVaccination.tipo_vacuna}
+            onChange={handleChange}
+            required
           />
           <Input
-            type="number"
-            step="0.01" // Permite decimales
             label="Dosis Administrada"
             name="dosis_administrada"
-            value={nuevaVacunacion.dosis_administrada}
-            onChange={handleInputChange}
+            type="number"
+            step="0.01"
+            value={newVaccination.dosis_administrada}
+            onChange={handleChange}
+            required
           />
           <Input
-            type="date"
-            label="Próxima Dosis"
+            label="Fecha Próxima Dosis"
             name="fecha_proxima_dosis"
-            value={nuevaVacunacion.fecha_proxima_dosis}
-            onChange={handleInputChange}
+            type="date"
+            value={newVaccination.fecha_proxima_dosis}
+            onChange={handleChange}
+            required
           />
           <Input
-            label="Veterinario Responsable"
-            name="veterinario_responsable"
-            value={nuevaVacunacion.veterinario_responsable}
-            onChange={handleInputChange}
+            label="Veterinario"
+            name="veterinario"
+            value={newVaccination.veterinario}
+            onChange={handleChange}
+            required
           />
           <Input
             label="Observaciones"
             name="observaciones"
-            value={nuevaVacunacion.observaciones}
-            onChange={handleInputChange}
+            value={newVaccination.observaciones}
+            onChange={handleChange}
           />
-        </div>
-        <Button
-          variant="gradient"
-          color="blue"
-          className="mt-4"
-          onClick={agregarVacunacion}
-        >
-          Agregar
-        </Button>
-
-        {/* Tabla de vacunaciones */}
-        <div className="mt-6 overflow-x-auto">
-          <table className="w-full table-auto whitespace-nowrap">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border border-gray-300">ID</th>
-                <th className="px-4 py-2 border border-gray-300">Animal</th>
-                <th className="px-4 py-2 border border-gray-300">
-                  Fecha Vacunación
-                </th>
-                <th className="px-4 py-2 border border-gray-300">
-                  Tipo Vacuna
-                </th>
-                <th className="px-4 py-2 border border-gray-300">Dosis</th>
-                <th className="px-4 py-2 border border-gray-300">
-                  Próxima Dosis
-                </th>
-                <th className="px-4 py-2 border border-gray-300">
-                  Veterinario
-                </th>
-                <th className="px-4 py-2 border border-gray-300">
-                  Observaciones
-                </th>
-                <th className="px-4 py-2 border border-gray-300">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vacunaciones.map((vacunacion) => (
-                <tr key={vacunacion.id_vacunacion}>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.id_vacunacion}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.id_producto}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.fecha_vacunacion}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.tipo_vacuna}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.dosis_administrada}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.fecha_proxima_dosis}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.veterinario_responsable}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    {vacunacion.observaciones}
-                  </td>
-                  <td className="px-4 py-2 border border-gray-300">
-                    <div className="flex items-center justify-center gap-2">
-                      <Tooltip content="Editar">
-                        <IconButton variant="text" color="blue">
-                          <PencilIcon className="w-5 h-5" />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip content="Eliminar">
-                        <IconButton
-                          variant="text"
-                          color="red"
-                          onClick={() =>
-                            eliminarVacunacion(vacunacion.id_vacunacion)
-                          }
-                        >
-                          <TrashIcon className="w-5 h-5" />
-                        </IconButton>
-                      </Tooltip>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Input
+            label="ID Animal"
+            name="id_animal"
+            value={newVaccination.id_animal}
+            onChange={handleChange}
+            required
+          />
+          <Button type="submit">Registrar Vacuna</Button>
+        </form>
+        <div className="mt-6">
+          <Typography variant="h6">Lista de Vacunaciones</Typography>
+          {vaccinations.map((vacuna) => (
+            <div
+              key={vacuna.id_vacuna}
+              className="flex items-center justify-between p-2 border-b"
+            >
+              <Typography>
+                {vacuna.tipo_vacuna} - {vacuna.veterinario}
+              </Typography>
+              <div className="flex gap-2">
+                <IconButton
+                  onClick={() =>
+                    updateVaccination(vacuna.id_vacuna, newVaccination)
+                  }
+                >
+                  <Tooltip content="Editar">
+                    <PencilIcon className="w-5 h-5" />
+                  </Tooltip>
+                </IconButton>
+                <IconButton onClick={() => deleteVaccination(vacuna.id_vacuna)}>
+                  <Tooltip content="Eliminar">
+                    <TrashIcon className="w-5 h-5" />
+                  </Tooltip>
+                </IconButton>
+              </div>
+            </div>
+          ))}
         </div>
       </CardBody>
     </Card>
