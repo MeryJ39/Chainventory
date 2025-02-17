@@ -177,6 +177,15 @@ export function SidebarWithBurgerMenu() {
                     Productos
                   </ListItem>
                   <ListItem
+                    onClick={() => handleNavigate("dashboard/animales")}
+                  >
+                    <ListItemPrefix>
+                      <cowIcon strokeWidth={3} className="w-5 h-3" />
+                      <RectangleStackIcon strokeWidth={3} className="w-5 h-3" />
+                    </ListItemPrefix>
+                    Animales
+                  </ListItem>
+                  <ListItem
                     onClick={() => handleNavigate("dashboard/movimientos")}
                   >
                     <ListItemPrefix>

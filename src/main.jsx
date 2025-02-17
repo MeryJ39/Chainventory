@@ -18,6 +18,7 @@ import Usuarios from "./pages/Usuarios.jsx";
 import Analiticas from "./pages/Analiticas.jsx";
 import Informes from "./pages/Informes.jsx";
 import Auditorias from "./pages/Auditorias.jsx";
+import Animales from "./pages/Animales.jsx";
 
 const Layout = () => (
   <>
@@ -58,6 +59,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="vacunaciones" element={<Vacunaciones />} />
               <Route path="usuarios" element={<Usuarios></Usuarios>} />
               <Route path="profile" element={<ProfilePage />} />
+              <Route path="animales" element={<Animales></Animales>} />
             </Route>
           </Routes>
         </BrowserRouter>
