@@ -81,7 +81,7 @@ export default function Animales() {
                 selected={newAnimal[key] ? new Date(newAnimal[key]) : null}
                 onChange={(date) => handleDateChange(date, key)}
                 dateFormat="yyyy-MM-dd"
-                className="w-full p-2 border border-gray-300 rounded appearance-none"
+                className="p-2 border border-gray-400 rounded appearance-none w-96 bg-background"
                 placeholderText="Seleccionar fecha"
               />
             ) : (

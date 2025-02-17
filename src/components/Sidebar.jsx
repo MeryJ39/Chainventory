@@ -36,6 +36,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FaCow } from "react-icons/fa6";
 import ThemeSwitch from "./ThemeSwitch";
+import { GiCow } from "react-icons/gi";
 
 export function SidebarWithBurgerMenu() {
   const [open, setOpen] = React.useState(0);
@@ -172,7 +173,7 @@ export function SidebarWithBurgerMenu() {
                     onClick={() => handleNavigate("dashboard/productos")}
                   >
                     <ListItemPrefix>
-                      <RectangleStackIcon strokeWidth={3} className="w-5 h-3" />
+                      <RectangleStackIcon strokeWidth={3} className="w-5 h-5" />
                     </ListItemPrefix>
                     Productos
                   </ListItem>
@@ -180,8 +181,7 @@ export function SidebarWithBurgerMenu() {
                     onClick={() => handleNavigate("dashboard/animales")}
                   >
                     <ListItemPrefix>
-                      <cowIcon strokeWidth={3} className="w-5 h-3" />
-                      <RectangleStackIcon strokeWidth={3} className="w-5 h-3" />
+                      <GiCow strokeWidth={3} className="w-5 h-5" />
                     </ListItemPrefix>
                     Animales
                   </ListItem>
@@ -189,7 +189,7 @@ export function SidebarWithBurgerMenu() {
                     <ListItemPrefix>
                       <ArrowsRightLeftIcon
                         strokeWidth={3}
-                        className="w-5 h-3"
+                        className="w-5 h-5"
                       />
                     </ListItemPrefix>
                     Ventas
@@ -198,7 +198,7 @@ export function SidebarWithBurgerMenu() {
                     onClick={() => handleNavigate("dashboard/vacunaciones")}
                   >
                     <ListItemPrefix>
-                      <PencilSquareIcon strokeWidth={3} className="w-5 h-3" />
+                      <PencilSquareIcon strokeWidth={3} className="w-5 h-5" />
                     </ListItemPrefix>
                     Vacunaciones
                   </ListItem>
@@ -206,7 +206,7 @@ export function SidebarWithBurgerMenu() {
                     onClick={() => handleNavigate("dashboard/usuarios")}
                   >
                     <ListItemPrefix>
-                      <UserIcon strokeWidth={3} className="w-5 h-3" />
+                      <UserIcon strokeWidth={3} className="w-5 h-5" />
                     </ListItemPrefix>
                     Usuarios
                   </ListItem>

@@ -70,10 +70,8 @@ const Vacunaciones = () => {
 
   return (
     <Card>
-      <CardHeader>
+      <CardBody className="space-y-4 bg-background">
         <Typography variant="h5">Registro de Vacunaciones</Typography>
-      </CardHeader>
-      <CardBody>
         {loading && <p>Cargando...</p>}
         {error && <p>Error: {error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">

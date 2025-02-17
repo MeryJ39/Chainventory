@@ -76,7 +76,7 @@ const Ventas = () => {
   };
 
   return (
-    <div className="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-md">
+    <div className="max-w-4xl p-6 mx-auto rounded-lg shadow-md bg-background">
       <h2 className="mb-4 text-2xl font-bold">Gestión de Ventas</h2>
 
       {loading && <p className="text-blue-500">Cargando ventas...</p>}
@@ -101,7 +101,7 @@ const Ventas = () => {
             name={key}
             value={formData[key]}
             onChange={handleChange}
-            className="p-2 border rounded"
+            className="p-2 border border-gray-400 rounded bg-background text-text"
             placeholder={key.replace("_", " ").toUpperCase()}
           />
         ))}

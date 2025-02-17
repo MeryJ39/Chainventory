@@ -32,7 +32,7 @@ const Usuarios = () => {
       {error && <p className="text-red-500">Error: {error}</p>}
 
       {/* Lista de Usuarios */}
-      <ul className="p-4 bg-white rounded shadow-md">
+      <ul className="p-4 rounded shadow-md bg-background">
         {users.map((user) => (
           <li
             key={user._id}
@@ -52,7 +52,7 @@ const Usuarios = () => {
       </ul>
 
       {/* Formulario para agregar usuario */}
-      <div className="p-4 mt-6 bg-white rounded shadow-md">
+      <div className="p-4 mt-6 rounded shadow-md bg-background">
         <h3 className="text-lg font-semibold">Agregar Usuario</h3>
 
         <input
@@ -60,27 +60,27 @@ const Usuarios = () => {
           placeholder="Username"
           value={newUser.username}
           onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
-          className="w-full p-2 mt-2 border"
+          className="w-full p-2 mt-2 border bg-background"
         />
         <input
           type="email"
           placeholder="Email"
           value={newUser.email}
           onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
-          className="w-full p-2 mt-2 border"
+          className="w-full p-2 mt-2 border bg-background"
         />
         <input
           type="password"
           placeholder="Contraseña"
           value={newUser.password}
           onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
-          className="w-full p-2 mt-2 border"
+          className="w-full p-2 mt-2 border bg-background"
         />
 
         <select
           value={newUser.role}
           onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
-          className="w-full p-2 mt-2 border"
+          className="w-full p-2 mt-2 border bg-background"
         >
           <option value="">Seleccionar Rol</option>
           {roles.map((role) => (
