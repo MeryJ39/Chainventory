@@ -1,0 +1,1564 @@
+{
+  "contractName": "VacunaContract",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "tipo_vacuna",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fecha_registro",
+          "type": "uint256"
+        }
+      ],
+      "name": "VacunaRegistrada",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "siguienteVacunaId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "vacunas",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fecha_registro",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "id_hembra",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "especie",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "raza",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "edad",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "tipo_vacuna",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "dosis_administrada",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fecha_proxima_dosis",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "veterinario",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "observaciones",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "id_animal",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_id_hembra",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_especie",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_raza",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_edad",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_tipo_vacuna",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_dosis_administrada",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fecha_proxima_dosis",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_veterinario",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_observaciones",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id_animal",
+          "type": "uint256"
+        }
+      ],
+      "name": "registrarVacuna",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tipo_vacuna\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fecha_registro\",\"type\":\"uint256\"}],\"name\":\"VacunaRegistrada\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id_hembra\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_especie\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_raza\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_edad\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_tipo_vacuna\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_dosis_administrada\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fecha_proxima_dosis\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_veterinario\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_observaciones\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_id_animal\",\"type\":\"uint256\"}],\"name\":\"registrarVacuna\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"siguienteVacunaId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"vacunas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"fecha_registro\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"id_hembra\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"especie\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"raza\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"edad\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"tipo_vacuna\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dosis_administrada\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"fecha_proxima_dosis\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"veterinario\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"observaciones\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"id_animal\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/VacunaContract.sol\":\"VacunaContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/VacunaContract.sol\":{\"keccak256\":\"0xe7a5e817260a80d212014eee5bd814a46df55abbc61cbebfd9c8a2dcd45acaf3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8429c5927ab245caf29ceb52e2113589cd9c326eb7abd14d7b0d867ec4150c07\",\"dweb:/ipfs/Qmda3QHx487mNGoKUu91ZQF37SK34Kbos7RF6L2zHjK332\"]}},\"version\":1}",
+  "bytecode": "0x6080806040523461001a5760018055610c8f90816100208239f35b600080fdfe6080604052600436101561001257600080fd5b60003560e01c80631691090b146109a0578063a5330f89146100605763fe8e33251461003d57600080fd5b3461005b57600036600319011261005b576020600154604051908152f35b600080fd5b3461005b5761014036600319011261005b576004356001600160401b03811161005b57610091903690600401610c03565b6024356001600160401b03811161005b576100b0903690600401610c03565b6044356001600160401b03811161005b576100cf903690600401610c03565b906084356001600160401b03811161005b576100ef903690600401610c03565b9160e4356001600160401b03811161005b5761010f903690600401610c03565b610104356001600160401b03811161005b5761012f903690600401610c03565b9160015493600019851461098a576001850160015560405196876101808101106001600160401b036101808a01111761056457610180880160405285885242602089015260408801526060870152608086015260643560a08601528360c086015260a43560e086015260c435610100860152610120850152610140840152610124356101608401528060005260006020526040600020835181556020840151600182015560408401518051906001600160401b0382116105645781906101f86002850154610ac2565b601f8111610937575b50602090601f83116001146108c5576000926108ba575b50508160011b916000199060031b1c19161760028201555b60608401518051906001600160401b0382116105645781906102556003850154610ac2565b601f8111610867575b50602090601f83116001146107f5576000926107ea575b50508160011b916000199060031b1c19161760038201555b60808401518051906001600160401b0382116105645781906102b26004850154610ac2565b601f8111610797575b50602090601f83116001146107255760009261071a575b50508160011b916000199060031b1c19161760048201555b60a0840151600582015560c08401518051906001600160401b0382116105645781906103196006850154610ac2565b601f81116106c7575b50602090601f83116001146106555760009261064a575b50508160011b916000199060031b1c19161760068201555b60e0840151600782015561010084015160088201556101208401518051906001600160401b03821161056457819061038c6009850154610ac2565b601f81116105f7575b50602090601f83116001146105855760009261057a575b50508160011b916000199060031b1c19161760098201555b6101408401518051906001600160401b038211610564576103e8600a840154610ac2565b601f8111610519575b50602090601f8311600114610482579582600b93610160937f1c94cef274b4dff56ff0932fcc99f7b53e86c416b2e7274f6504578bf143054c99600092610477575b50508160011b916000199060031b1c191617600a8501555b015191015561046c6040519283928352606060208401526060830190610bc3565b4260408301520390a1005b015190508980610433565b90600a840160005260206000209160005b601f1985168110610501575083610160937f1c94cef274b4dff56ff0932fcc99f7b53e86c416b2e7274f6504578bf143054c9993600193600b97601f198116106104e8575b505050811b01600a85015561044b565b015160001960f88460031b161c191690558980806104d8565b91926020600181928685015181550194019201610493565b600a84016000526020600020601f840160051c8101916020851061055a575b601f0160051c01905b81811061054e57506103f1565b60008155600101610541565b9091508190610538565b634e487b7160e01b600052604160045260246000fd5b0151905086806103ac565b9250600984016000526020600020906000935b601f19841685106105dc576001945083601f198116106105c3575b505050811b0160098201556103c4565b015160001960f88460031b161c191690558680806105b3565b81810151835560209485019460019093019290910190610598565b909150600984016000526020600020601f840160051c810160208510610643575b90849392915b601f830160051c82018110610634575050610395565b6000815585945060010161061e565b5080610618565b015190508680610339565b9250600684016000526020600020906000935b601f19841685106106ac576001945083601f19811610610693575b505050811b016006820155610351565b015160001960f88460031b161c19169055868080610683565b81810151835560209485019460019093019290910190610668565b909150600684016000526020600020601f840160051c810160208510610713575b90849392915b601f830160051c82018110610704575050610322565b600081558594506001016106ee565b50806106e8565b0151905086806102d2565b9250600484016000526020600020906000935b601f198416851061077c576001945083601f19811610610763575b505050811b0160048201556102ea565b015160001960f88460031b161c19169055868080610753565b81810151835560209485019460019093019290910190610738565b909150600484016000526020600020601f840160051c8101602085106107e3575b90849392915b601f830160051c820181106107d45750506102bb565b600081558594506001016107be565b50806107b8565b015190508680610275565b9250600384016000526020600020906000935b601f198416851061084c576001945083601f19811610610833575b505050811b01600382015561028d565b015160001960f88460031b161c19169055868080610823565b81810151835560209485019460019093019290910190610808565b909150600384016000526020600020601f840160051c8101602085106108b3575b90849392915b601f830160051c820181106108a457505061025e565b6000815585945060010161088e565b5080610888565b015190508680610218565b9250600284016000526020600020906000935b601f198416851061091c576001945083601f19811610610903575b505050811b016002820155610230565b015160001960f88460031b161c191690558680806108f3565b818101518355602094850194600190930192909101906108d8565b909150600284016000526020600020601f840160051c810160208510610983575b90849392915b601f830160051c82018110610974575050610201565b6000815585945060010161095e565b5080610958565b634e487b7160e01b600052601160045260246000fd5b3461005b57602036600319011261005b57600435600052600060205260406000208054600182015491600281016109d690610b1d565b906109e360038201610b1d565b6109ef60048301610b1d565b600583015490610a0160068501610b1d565b60078501549260088601549260098701610a1a90610b1d565b95610a27600a8901610b1d565b97600b0154986040519b8c9b8c5260208c01526101808060408d01528b01610a4e91610bc3565b8a810360608c0152610a5f91610bc3565b89810360808b0152610a7091610bc3565b9060a089015287810360c0890152610a8791610bc3565b9160e0870152610100860152848103610120860152610aa591610bc3565b838103610140850152610ab791610bc3565b906101608301520390f35b90600182811c92168015610af2575b6020831014610adc57565b634e487b7160e01b600052602260045260246000fd5b91607f1691610ad1565b90601f801991011681019081106001600160401b0382111761056457604052565b9060405191826000825492610b3184610ac2565b908184526001948581169081600014610ba05750600114610b5d575b5050610b5b92500383610afc565b565b9093915060005260209081600020936000915b818310610b88575050610b5b93508201013880610b4d565b85548884018501529485019487945091830191610b70565b915050610b5b94506020925060ff191682840152151560051b8201013880610b4d565b919082519283825260005b848110610bef575050826000602080949584010152601f8019910116010190565b602081830181015184830182015201610bce565b81601f8201121561005b578035906001600160401b0382116105645760405192610c37601f8401601f191660200185610afc565b8284526020838301011161005b5781600092602080930183860137830101529056fea2646970667358221220fe10d32696f3bc43c9673753fc08d73f301bc67e23956aca516733861676638964736f6c63430008120033",
+  "deployedBytecode": "0x6080604052600436101561001257600080fd5b60003560e01c80631691090b146109a0578063a5330f89146100605763fe8e33251461003d57600080fd5b3461005b57600036600319011261005b576020600154604051908152f35b600080fd5b3461005b5761014036600319011261005b576004356001600160401b03811161005b57610091903690600401610c03565b6024356001600160401b03811161005b576100b0903690600401610c03565b6044356001600160401b03811161005b576100cf903690600401610c03565b906084356001600160401b03811161005b576100ef903690600401610c03565b9160e4356001600160401b03811161005b5761010f903690600401610c03565b610104356001600160401b03811161005b5761012f903690600401610c03565b9160015493600019851461098a576001850160015560405196876101808101106001600160401b036101808a01111761056457610180880160405285885242602089015260408801526060870152608086015260643560a08601528360c086015260a43560e086015260c435610100860152610120850152610140840152610124356101608401528060005260006020526040600020835181556020840151600182015560408401518051906001600160401b0382116105645781906101f86002850154610ac2565b601f8111610937575b50602090601f83116001146108c5576000926108ba575b50508160011b916000199060031b1c19161760028201555b60608401518051906001600160401b0382116105645781906102556003850154610ac2565b601f8111610867575b50602090601f83116001146107f5576000926107ea575b50508160011b916000199060031b1c19161760038201555b60808401518051906001600160401b0382116105645781906102b26004850154610ac2565b601f8111610797575b50602090601f83116001146107255760009261071a575b50508160011b916000199060031b1c19161760048201555b60a0840151600582015560c08401518051906001600160401b0382116105645781906103196006850154610ac2565b601f81116106c7575b50602090601f83116001146106555760009261064a575b50508160011b916000199060031b1c19161760068201555b60e0840151600782015561010084015160088201556101208401518051906001600160401b03821161056457819061038c6009850154610ac2565b601f81116105f7575b50602090601f83116001146105855760009261057a575b50508160011b916000199060031b1c19161760098201555b6101408401518051906001600160401b038211610564576103e8600a840154610ac2565b601f8111610519575b50602090601f8311600114610482579582600b93610160937f1c94cef274b4dff56ff0932fcc99f7b53e86c416b2e7274f6504578bf143054c99600092610477575b50508160011b916000199060031b1c191617600a8501555b015191015561046c6040519283928352606060208401526060830190610bc3565b4260408301520390a1005b015190508980610433565b90600a840160005260206000209160005b601f1985168110610501575083610160937f1c94cef274b4dff56ff0932fcc99f7b53e86c416b2e7274f6504578bf143054c9993600193600b97601f198116106104e8575b505050811b01600a85015561044b565b015160001960f88460031b161c191690558980806104d8565b91926020600181928685015181550194019201610493565b600a84016000526020600020601f840160051c8101916020851061055a575b601f0160051c01905b81811061054e57506103f1565b60008155600101610541565b9091508190610538565b634e487b7160e01b600052604160045260246000fd5b0151905086806103ac565b9250600984016000526020600020906000935b601f19841685106105dc576001945083601f198116106105c3575b505050811b0160098201556103c4565b015160001960f88460031b161c191690558680806105b3565b81810151835560209485019460019093019290910190610598565b909150600984016000526020600020601f840160051c810160208510610643575b90849392915b601f830160051c82018110610634575050610395565b6000815585945060010161061e565b5080610618565b015190508680610339565b9250600684016000526020600020906000935b601f19841685106106ac576001945083601f19811610610693575b505050811b016006820155610351565b015160001960f88460031b161c19169055868080610683565b81810151835560209485019460019093019290910190610668565b909150600684016000526020600020601f840160051c810160208510610713575b90849392915b601f830160051c82018110610704575050610322565b600081558594506001016106ee565b50806106e8565b0151905086806102d2565b9250600484016000526020600020906000935b601f198416851061077c576001945083601f19811610610763575b505050811b0160048201556102ea565b015160001960f88460031b161c19169055868080610753565b81810151835560209485019460019093019290910190610738565b909150600484016000526020600020601f840160051c8101602085106107e3575b90849392915b601f830160051c820181106107d45750506102bb565b600081558594506001016107be565b50806107b8565b015190508680610275565b9250600384016000526020600020906000935b601f198416851061084c576001945083601f19811610610833575b505050811b01600382015561028d565b015160001960f88460031b161c19169055868080610823565b81810151835560209485019460019093019290910190610808565b909150600384016000526020600020601f840160051c8101602085106108b3575b90849392915b601f830160051c820181106108a457505061025e565b6000815585945060010161088e565b5080610888565b015190508680610218565b9250600284016000526020600020906000935b601f198416851061091c576001945083601f19811610610903575b505050811b016002820155610230565b015160001960f88460031b161c191690558680806108f3565b818101518355602094850194600190930192909101906108d8565b909150600284016000526020600020601f840160051c810160208510610983575b90849392915b601f830160051c82018110610974575050610201565b6000815585945060010161095e565b5080610958565b634e487b7160e01b600052601160045260246000fd5b3461005b57602036600319011261005b57600435600052600060205260406000208054600182015491600281016109d690610b1d565b906109e360038201610b1d565b6109ef60048301610b1d565b600583015490610a0160068501610b1d565b60078501549260088601549260098701610a1a90610b1d565b95610a27600a8901610b1d565b97600b0154986040519b8c9b8c5260208c01526101808060408d01528b01610a4e91610bc3565b8a810360608c0152610a5f91610bc3565b89810360808b0152610a7091610bc3565b9060a089015287810360c0890152610a8791610bc3565b9160e0870152610100860152848103610120860152610aa591610bc3565b838103610140850152610ab791610bc3565b906101608301520390f35b90600182811c92168015610af2575b6020831014610adc57565b634e487b7160e01b600052602260045260246000fd5b91607f1691610ad1565b90601f801991011681019081106001600160401b0382111761056457604052565b9060405191826000825492610b3184610ac2565b908184526001948581169081600014610ba05750600114610b5d575b5050610b5b92500383610afc565b565b9093915060005260209081600020936000915b818310610b88575050610b5b93508201013880610b4d565b85548884018501529485019487945091830191610b70565b915050610b5b94506020925060ff191682840152151560051b8201013880610b4d565b919082519283825260005b848110610bef575050826000602080949584010152601f8019910116010190565b602081830181015184830182015201610bce565b81601f8201121561005b578035906001600160401b0382116105645760405192610c37601f8401601f191660200185610afc565b8284526020838301011161005b5781600092602080930183860137830101529056fea2646970667358221220fe10d32696f3bc43c9673753fc08d73f301bc67e23956aca516733861676638964736f6c63430008120033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "60:1280:9:-:0;;;;;;;523:1;60:1280;;;;;;;;;;;;",
+  "deployedSourceMap": "60:1280:9:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;491:33;60:1280;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;;;;1072:15;60:1280;1047:213;;60:1280;;1047:213;;60:1280;;1047:213;;60:1280;;1047:213;;60:1280;;;;1047:213;;60:1280;1047:213;60:1280;1047:213;;60:1280;;;;1047:213;;60:1280;;;;1047:213;;60:1280;;1047:213;;60:1280;;1047:213;;60:1280;;;1047:213;;;60:1280;;;;;;;;;;;;;;;1047:213;;60:1280;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;;60:1280;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;;60:1280;;;;;;1047:213;;60:1280;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;;60:1280;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;1047:213;60:1280;1278:51;60:1280;;;;;;;;;;;;;;;;;;;;;;;;;;1047:213;60:1280;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1072:15;60:1280;;;;1278:51;;;60:1280;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;1047:213;60:1280;1278:51;60:1280;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;-1:-1:-1;60:1280:9;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;-1:-1:-1;60:1280:9;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;-1:-1:-1;60:1280:9;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;-1:-1:-1;60:1280:9;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;;;;;;;;;;;;;446:38;;60:1280;446:38;;;;;;;:::i;:::-;;;60:1280;446:38;;;:::i;:::-;;60:1280;446:38;;;:::i;:::-;;;;60:1280;;446:38;;;;;:::i;:::-;;;;60:1280;446:38;;;;60:1280;446:38;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;60:1280;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;:::o;:::-;;;;;;-1:-1:-1;60:1280:9;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;:::o;:::-;;;;;-1:-1:-1;60:1280:9;;;;-1:-1:-1;60:1280:9;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1280:9;;;;;;;;;;;-1:-1:-1;;60:1280:9;;;;;:::i;:::-;;;;;;;;;;;;;-1:-1:-1;60:1280:9;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract VacunaContract {\r\n    struct Vacuna {\r\n        uint id;\r\n        uint fecha_registro;\r\n        string id_hembra;\r\n        string especie;\r\n        string raza;\r\n        uint edad;\r\n        string tipo_vacuna;\r\n        uint dosis_administrada;\r\n        uint fecha_proxima_dosis;\r\n        string veterinario;\r\n        string observaciones;\r\n        uint id_animal;\r\n    }\r\n\r\n    mapping(uint => Vacuna) public vacunas;\r\n    uint public siguienteVacunaId = 1;\r\n\r\n    event VacunaRegistrada(uint id, string tipo_vacuna, uint fecha_registro);\r\n\r\n    function registrarVacuna(\r\n        string memory _id_hembra,\r\n        string memory _especie,\r\n        string memory _raza,\r\n        uint _edad,\r\n        string memory _tipo_vacuna,\r\n        uint _dosis_administrada,\r\n        uint _fecha_proxima_dosis,\r\n        string memory _veterinario,\r\n        string memory _observaciones,\r\n        uint _id_animal\r\n    ) public {\r\n        uint id = siguienteVacunaId++;\r\n        vacunas[id] = Vacuna(\r\n            id, block.timestamp, _id_hembra, _especie, _raza, _edad,\r\n            _tipo_vacuna, _dosis_administrada, _fecha_proxima_dosis, \r\n            _veterinario, _observaciones, _id_animal\r\n        );\r\n\r\n        emit VacunaRegistrada(id, _tipo_vacuna, block.timestamp);\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Raul\\Documents\\GitHub\\Chainventory\\Chainventory\\truffle\\contracts\\VacunaContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/VacunaContract.sol",
+    "exportedSymbols": {
+      "VacunaContract": [
+        455
+      ]
+    },
+    "id": 456,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 357,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "VacunaContract",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 455,
+        "linearizedBaseContracts": [
+          455
+        ],
+        "name": "VacunaContract",
+        "nameLocation": "69:14:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "VacunaContract.Vacuna",
+            "id": 382,
+            "members": [
+              {
+                "constant": false,
+                "id": 359,
+                "mutability": "mutable",
+                "name": "id",
+                "nameLocation": "121:2:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "116:7:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 358,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "116:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 361,
+                "mutability": "mutable",
+                "name": "fecha_registro",
+                "nameLocation": "139:14:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "134:19:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 360,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "134:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 363,
+                "mutability": "mutable",
+                "name": "id_hembra",
+                "nameLocation": "171:9:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "164:16:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 362,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "164:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 365,
+                "mutability": "mutable",
+                "name": "especie",
+                "nameLocation": "198:7:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "191:14:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 364,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "191:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 367,
+                "mutability": "mutable",
+                "name": "raza",
+                "nameLocation": "223:4:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "216:11:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 366,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "216:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 369,
+                "mutability": "mutable",
+                "name": "edad",
+                "nameLocation": "243:4:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "238:9:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 368,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "238:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 371,
+                "mutability": "mutable",
+                "name": "tipo_vacuna",
+                "nameLocation": "265:11:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "258:18:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 370,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "258:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 373,
+                "mutability": "mutable",
+                "name": "dosis_administrada",
+                "nameLocation": "292:18:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "287:23:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 372,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "287:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 375,
+                "mutability": "mutable",
+                "name": "fecha_proxima_dosis",
+                "nameLocation": "326:19:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "321:24:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 374,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "321:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 377,
+                "mutability": "mutable",
+                "name": "veterinario",
+                "nameLocation": "363:11:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "356:18:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 376,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "356:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 379,
+                "mutability": "mutable",
+                "name": "observaciones",
+                "nameLocation": "392:13:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "385:20:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 378,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "385:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 381,
+                "mutability": "mutable",
+                "name": "id_animal",
+                "nameLocation": "421:9:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 382,
+                "src": "416:14:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 380,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "416:4:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Vacuna",
+            "nameLocation": "98:6:9",
+            "nodeType": "StructDefinition",
+            "scope": 455,
+            "src": "91:347:9",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "1691090b",
+            "id": 387,
+            "mutability": "mutable",
+            "name": "vacunas",
+            "nameLocation": "477:7:9",
+            "nodeType": "VariableDeclaration",
+            "scope": 455,
+            "src": "446:38:9",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Vacuna_$382_storage_$",
+              "typeString": "mapping(uint256 => struct VacunaContract.Vacuna)"
+            },
+            "typeName": {
+              "id": 386,
+              "keyName": "",
+              "keyNameLocation": "-1:-1:-1",
+              "keyType": {
+                "id": 383,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "454:4:9",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "446:23:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Vacuna_$382_storage_$",
+                "typeString": "mapping(uint256 => struct VacunaContract.Vacuna)"
+              },
+              "valueName": "",
+              "valueNameLocation": "-1:-1:-1",
+              "valueType": {
+                "id": 385,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 384,
+                  "name": "Vacuna",
+                  "nameLocations": [
+                    "462:6:9"
+                  ],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 382,
+                  "src": "462:6:9"
+                },
+                "referencedDeclaration": 382,
+                "src": "462:6:9",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Vacuna_$382_storage_ptr",
+                  "typeString": "struct VacunaContract.Vacuna"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "fe8e3325",
+            "id": 390,
+            "mutability": "mutable",
+            "name": "siguienteVacunaId",
+            "nameLocation": "503:17:9",
+            "nodeType": "VariableDeclaration",
+            "scope": 455,
+            "src": "491:33:9",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 388,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "491:4:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "31",
+              "id": 389,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "523:1:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
+              },
+              "value": "1"
+            },
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "1c94cef274b4dff56ff0932fcc99f7b53e86c416b2e7274f6504578bf143054c",
+            "id": 398,
+            "name": "VacunaRegistrada",
+            "nameLocation": "539:16:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 397,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 392,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "561:2:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 398,
+                  "src": "556:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 391,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "556:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 394,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "tipo_vacuna",
+                  "nameLocation": "572:11:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 398,
+                  "src": "565:18:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 393,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "565:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 396,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "fecha_registro",
+                  "nameLocation": "590:14:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 398,
+                  "src": "585:19:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 395,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "585:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "555:50:9"
+            },
+            "src": "533:73:9"
+          },
+          {
+            "body": {
+              "id": 453,
+              "nodeType": "Block",
+              "src": "982:355:9",
+              "statements": [
+                {
+                  "assignments": [
+                    422
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 422,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "nameLocation": "998:2:9",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 453,
+                      "src": "993:7:9",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 421,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "993:4:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 425,
+                  "initialValue": {
+                    "id": 424,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "1003:19:9",
+                    "subExpression": {
+                      "id": 423,
+                      "name": "siguienteVacunaId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 390,
+                      "src": "1003:17:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "993:29:9"
+                },
+                {
+                  "expression": {
+                    "id": 444,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 426,
+                        "name": "vacunas",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 387,
+                        "src": "1033:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Vacuna_$382_storage_$",
+                          "typeString": "mapping(uint256 => struct VacunaContract.Vacuna storage ref)"
+                        }
+                      },
+                      "id": 428,
+                      "indexExpression": {
+                        "id": 427,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 422,
+                        "src": "1041:2:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1033:11:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Vacuna_$382_storage",
+                        "typeString": "struct VacunaContract.Vacuna storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 430,
+                          "name": "id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 422,
+                          "src": "1068:2:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 431,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967292,
+                            "src": "1072:5:9",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 432,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1078:9:9",
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "src": "1072:15:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 433,
+                          "name": "_id_hembra",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 400,
+                          "src": "1089:10:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 434,
+                          "name": "_especie",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 402,
+                          "src": "1101:8:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 435,
+                          "name": "_raza",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 404,
+                          "src": "1111:5:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 436,
+                          "name": "_edad",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 406,
+                          "src": "1118:5:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 437,
+                          "name": "_tipo_vacuna",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 408,
+                          "src": "1138:12:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 438,
+                          "name": "_dosis_administrada",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 410,
+                          "src": "1152:19:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 439,
+                          "name": "_fecha_proxima_dosis",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 412,
+                          "src": "1173:20:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 440,
+                          "name": "_veterinario",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 414,
+                          "src": "1209:12:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 441,
+                          "name": "_observaciones",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 416,
+                          "src": "1223:14:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 442,
+                          "name": "_id_animal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 418,
+                          "src": "1239:10:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 429,
+                        "name": "Vacuna",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 382,
+                        "src": "1047:6:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Vacuna_$382_storage_ptr_$",
+                          "typeString": "type(struct VacunaContract.Vacuna storage pointer)"
+                        }
+                      },
+                      "id": 443,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1047:213:9",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Vacuna_$382_memory_ptr",
+                        "typeString": "struct VacunaContract.Vacuna memory"
+                      }
+                    },
+                    "src": "1033:227:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Vacuna_$382_storage",
+                      "typeString": "struct VacunaContract.Vacuna storage ref"
+                    }
+                  },
+                  "id": 445,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1033:227:9"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 447,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 422,
+                        "src": "1295:2:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 448,
+                        "name": "_tipo_vacuna",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 408,
+                        "src": "1299:12:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 449,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967292,
+                          "src": "1313:5:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 450,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1319:9:9",
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "src": "1313:15:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 446,
+                      "name": "VacunaRegistrada",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 398,
+                      "src": "1278:16:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,string memory,uint256)"
+                      }
+                    },
+                    "id": 451,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1278:51:9",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 452,
+                  "nodeType": "EmitStatement",
+                  "src": "1273:56:9"
+                }
+              ]
+            },
+            "functionSelector": "a5330f89",
+            "id": 454,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registrarVacuna",
+            "nameLocation": "623:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 419,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 400,
+                  "mutability": "mutable",
+                  "name": "_id_hembra",
+                  "nameLocation": "663:10:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "649:24:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 399,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "649:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 402,
+                  "mutability": "mutable",
+                  "name": "_especie",
+                  "nameLocation": "698:8:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "684:22:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 401,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "684:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 404,
+                  "mutability": "mutable",
+                  "name": "_raza",
+                  "nameLocation": "731:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "717:19:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 403,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "717:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 406,
+                  "mutability": "mutable",
+                  "name": "_edad",
+                  "nameLocation": "752:5:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "747:10:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 405,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "747:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 408,
+                  "mutability": "mutable",
+                  "name": "_tipo_vacuna",
+                  "nameLocation": "782:12:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "768:26:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 407,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "768:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 410,
+                  "mutability": "mutable",
+                  "name": "_dosis_administrada",
+                  "nameLocation": "810:19:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "805:24:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 409,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "805:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 412,
+                  "mutability": "mutable",
+                  "name": "_fecha_proxima_dosis",
+                  "nameLocation": "845:20:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "840:25:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 411,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "840:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 414,
+                  "mutability": "mutable",
+                  "name": "_veterinario",
+                  "nameLocation": "890:12:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "876:26:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 413,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "876:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 416,
+                  "mutability": "mutable",
+                  "name": "_observaciones",
+                  "nameLocation": "927:14:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "913:28:9",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 415,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "913:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 418,
+                  "mutability": "mutable",
+                  "name": "_id_animal",
+                  "nameLocation": "957:10:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 454,
+                  "src": "952:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 417,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "952:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "638:336:9"
+            },
+            "returnParameters": {
+              "id": 420,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "982:0:9"
+            },
+            "scope": 455,
+            "src": "614:723:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 456,
+        "src": "60:1280:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:1309:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.18+commit.87f61d96.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x9c6A4F2ed4bE39cf6589Ca67F24B630e59FBcaDE",
+      "transactionHash": "0xadad79003ff1688f6a7fbf51345c34ebbac37c3049b009ae9876dd4fadd23e95"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-02-24T19:27:29.067Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

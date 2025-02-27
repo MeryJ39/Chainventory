@@ -1,0 +1,1025 @@
+{
+  "contractName": "GanaderiaInventario",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_productoContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_ventaContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_animalContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_vacunaContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_usuarioContract",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "animalContract",
+      "outputs": [
+        {
+          "internalType": "contract AnimalContract",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "productoContract",
+      "outputs": [
+        {
+          "internalType": "contract ProductoContract",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "usuarioContract",
+      "outputs": [
+        {
+          "internalType": "contract UsuarioContract",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "vacunaContract",
+      "outputs": [
+        {
+          "internalType": "contract VacunaContract",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "ventaContract",
+      "outputs": [
+        {
+          "internalType": "contract VentaContract",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_productoContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_ventaContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_animalContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_vacunaContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_usuarioContract\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"animalContract\",\"outputs\":[{\"internalType\":\"contract AnimalContract\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"productoContract\",\"outputs\":[{\"internalType\":\"contract ProductoContract\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usuarioContract\",\"outputs\":[{\"internalType\":\"contract UsuarioContract\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vacunaContract\",\"outputs\":[{\"internalType\":\"contract VacunaContract\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ventaContract\",\"outputs\":[{\"internalType\":\"contract VentaContract\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/GanaderiaInventario.sol\":\"GanaderiaInventario\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AnimalContract.sol\":{\"keccak256\":\"0x7dd488bc37c904b38113b4e21cd94b6fb9eb5888848972d664ea34b83820dcdd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bc74e439388ea37cd99dc0402d0eb15e0dea2ae3e8616ed2a08237fe435d49d3\",\"dweb:/ipfs/Qme6wDd3Z9wfk8vD24rnTUiyDF6E9D9mB1Lwg4q1MxdZeF\"]},\"project:/contracts/GanaderiaInventario.sol\":{\"keccak256\":\"0x03e09ffb4f60c4cdc30718890fb767dc44d94e121d52d7ce6a39d28e06f1178c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5d2e0d9e6cd4862dbfc4201aef943ddb36c745117390dbeaaab42ec8549958e7\",\"dweb:/ipfs/Qmbz2WwgJKJpJ37RFqeHDYMJrZJHkdD4cjA3FmSrRbNtFw\"]},\"project:/contracts/ProductoContract.sol\":{\"keccak256\":\"0x3eb9d8e953790be14d45f21a6b1bf88ffb9b7e4945adb8d9ddab7f2335736ed3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://58b86f59aa585a7af18a74a326ead7a426c5abe986f887c98a668662b645f3d1\",\"dweb:/ipfs/QmeUmZavRWy1XxCZHq3Jb2K92YzmorvYrQomNy2W7jn7E2\"]},\"project:/contracts/UsuarioContract.sol\":{\"keccak256\":\"0x06da75f155c4cb1ff01c95f8006179df804cb8baffe1fbd0d51f9fba4df8d76e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0d06809e1b5a940a96b3e52f7979ce12749a31f2912bca8e5065772a51b7db64\",\"dweb:/ipfs/QmYJkfL5fzWMbxaogXzfvPDcGEmqsnZhs8ASJUsVkreCij\"]},\"project:/contracts/VacunaContract.sol\":{\"keccak256\":\"0xe7a5e817260a80d212014eee5bd814a46df55abbc61cbebfd9c8a2dcd45acaf3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8429c5927ab245caf29ceb52e2113589cd9c326eb7abd14d7b0d867ec4150c07\",\"dweb:/ipfs/Qmda3QHx487mNGoKUu91ZQF37SK34Kbos7RF6L2zHjK332\"]},\"project:/contracts/VentaContract.sol\":{\"keccak256\":\"0xa8fbaaf68a2b7868da622a815b42d2a7bdafa6806d9b24098e692dea9160c9de\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e8e3776bb61ca6890c9fc19a7dbb33b60e9862997453a2da9bf46c9724b9044d\",\"dweb:/ipfs/QmciAFvRd5i2UTp9Cp8xuGjQ4szgwg9EVYcQe5bHxu7JEo\"]}},\"version\":1}",
+  "bytecode": "0x6080346100d257601f61025e38819003918201601f19168301916001600160401b038311848410176100d75780849260a0946040528339810103126100d257610047816100ed565b90610054602082016100ed565b90610061604082016100ed565b9161007a6080610073606085016100ed565b93016100ed565b9160018060a01b0380948180948160018060a01b031999168960005416176000551687600154161760015516856002541617600255168360035416176003551690600454161760045560405161015c90816101028239f35b600080fd5b634e487b7160e01b600052604160045260246000fd5b51906001600160a01b03821682036100d25756fe608080604052600436101561001357600080fd5b600090813560e01c9081634c9c64b0146100fe575080639362560a146100d5578063c56a77d6146100ac578063e0b9cbd3146100835763f9bd4b971461005857600080fd5b346100805780600319360112610080576004546040516001600160a01b039091168152602090f35b80fd5b50346100805780600319360112610080576001546040516001600160a01b039091168152602090f35b50346100805780600319360112610080576002546040516001600160a01b039091168152602090f35b50346100805780600319360112610080576003546040516001600160a01b039091168152602090f35b90503461012257816003193601126101225790546001600160a01b03168152602090f35b5080fdfea2646970667358221220d5c8ce1053ad56ae7eee322523b12fc3351d0e9f1cfe36debcf63adbf6e67f9164736f6c63430008120033",
+  "deployedBytecode": "0x608080604052600436101561001357600080fd5b600090813560e01c9081634c9c64b0146100fe575080639362560a146100d5578063c56a77d6146100ac578063e0b9cbd3146100835763f9bd4b971461005857600080fd5b346100805780600319360112610080576004546040516001600160a01b039091168152602090f35b80fd5b50346100805780600319360112610080576001546040516001600160a01b039091168152602090f35b50346100805780600319360112610080576002546040516001600160a01b039091168152602090f35b50346100805780600319360112610080576003546040516001600160a01b039091168152602090f35b90503461012257816003193601126101225790546001600160a01b03168152602090f35b5080fdfea2646970667358221220d5c8ce1053ad56ae7eee322523b12fc3351d0e9f1cfe36debcf63adbf6e67f9164736f6c63430008120033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "224:760:3:-:0;;;;;;;;;;;;;-1:-1:-1;;224:760:3;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;224:760:3;;;-1:-1:-1;224:760:3;;;;;;;;;;;804:48;224:760;;;804:48;224:760;;;863:48;224:760;;;863:48;224:760;;;922:51;224:760;;;922:51;224:760;;;;;;;;;;;-1:-1:-1;224:760:3;;;;;;-1:-1:-1;224:760:3;;;;;-1:-1:-1;224:760:3;;;;-1:-1:-1;;;;;224:760:3;;;;;;:::o",
+  "deployedSourceMap": "224:760:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;348:36;224:760;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./ProductoContract.sol\";\r\nimport \"./VentaContract.sol\";\r\nimport \"./AnimalContract.sol\";\r\nimport \"./VacunaContract.sol\";\r\nimport \"./UsuarioContract.sol\";\r\n\r\ncontract GanaderiaInventario {\r\n    ProductoContract public productoContract;\r\n    VentaContract public ventaContract;\r\n    AnimalContract public animalContract;\r\n    VacunaContract public vacunaContract;\r\n    UsuarioContract public usuarioContract;\r\n\r\n    constructor(\r\n        address _productoContract,\r\n        address _ventaContract,\r\n        address _animalContract,\r\n        address _vacunaContract,\r\n        address _usuarioContract\r\n    ) {\r\n        productoContract = ProductoContract(_productoContract);\r\n        ventaContract = VentaContract(_ventaContract);\r\n        animalContract = AnimalContract(_animalContract);\r\n        vacunaContract = VacunaContract(_vacunaContract);\r\n        usuarioContract = UsuarioContract(_usuarioContract);\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Raul\\Documents\\GitHub\\Chainventory\\Chainventory\\truffle\\contracts\\GanaderiaInventario.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/GanaderiaInventario.sol",
+    "exportedSymbols": {
+      "AnimalContract": [
+        97
+      ],
+      "GanaderiaInventario": [
+        166
+      ],
+      "ProductoContract": [
+        286
+      ],
+      "UsuarioContract": [
+        353
+      ],
+      "VacunaContract": [
+        455
+      ],
+      "VentaContract": [
+        565
+      ]
+    },
+    "id": 167,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 101,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:3"
+      },
+      {
+        "absolutePath": "project:/contracts/ProductoContract.sol",
+        "file": "./ProductoContract.sol",
+        "id": 102,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 167,
+        "sourceUnit": 287,
+        "src": "60:32:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/VentaContract.sol",
+        "file": "./VentaContract.sol",
+        "id": 103,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 167,
+        "sourceUnit": 566,
+        "src": "94:29:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/AnimalContract.sol",
+        "file": "./AnimalContract.sol",
+        "id": 104,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 167,
+        "sourceUnit": 98,
+        "src": "125:30:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/VacunaContract.sol",
+        "file": "./VacunaContract.sol",
+        "id": 105,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 167,
+        "sourceUnit": 456,
+        "src": "157:30:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/UsuarioContract.sol",
+        "file": "./UsuarioContract.sol",
+        "id": 106,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 167,
+        "sourceUnit": 354,
+        "src": "189:31:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "GanaderiaInventario",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 166,
+        "linearizedBaseContracts": [
+          166
+        ],
+        "name": "GanaderiaInventario",
+        "nameLocation": "233:19:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "4c9c64b0",
+            "id": 109,
+            "mutability": "mutable",
+            "name": "productoContract",
+            "nameLocation": "284:16:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "260:40:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ProductoContract_$286",
+              "typeString": "contract ProductoContract"
+            },
+            "typeName": {
+              "id": 108,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 107,
+                "name": "ProductoContract",
+                "nameLocations": [
+                  "260:16:3"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 286,
+                "src": "260:16:3"
+              },
+              "referencedDeclaration": 286,
+              "src": "260:16:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ProductoContract_$286",
+                "typeString": "contract ProductoContract"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "e0b9cbd3",
+            "id": 112,
+            "mutability": "mutable",
+            "name": "ventaContract",
+            "nameLocation": "328:13:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "307:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_VentaContract_$565",
+              "typeString": "contract VentaContract"
+            },
+            "typeName": {
+              "id": 111,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 110,
+                "name": "VentaContract",
+                "nameLocations": [
+                  "307:13:3"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 565,
+                "src": "307:13:3"
+              },
+              "referencedDeclaration": 565,
+              "src": "307:13:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_VentaContract_$565",
+                "typeString": "contract VentaContract"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "c56a77d6",
+            "id": 115,
+            "mutability": "mutable",
+            "name": "animalContract",
+            "nameLocation": "370:14:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "348:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_AnimalContract_$97",
+              "typeString": "contract AnimalContract"
+            },
+            "typeName": {
+              "id": 114,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 113,
+                "name": "AnimalContract",
+                "nameLocations": [
+                  "348:14:3"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 97,
+                "src": "348:14:3"
+              },
+              "referencedDeclaration": 97,
+              "src": "348:14:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AnimalContract_$97",
+                "typeString": "contract AnimalContract"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "9362560a",
+            "id": 118,
+            "mutability": "mutable",
+            "name": "vacunaContract",
+            "nameLocation": "413:14:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "391:36:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_VacunaContract_$455",
+              "typeString": "contract VacunaContract"
+            },
+            "typeName": {
+              "id": 117,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 116,
+                "name": "VacunaContract",
+                "nameLocations": [
+                  "391:14:3"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 455,
+                "src": "391:14:3"
+              },
+              "referencedDeclaration": 455,
+              "src": "391:14:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_VacunaContract_$455",
+                "typeString": "contract VacunaContract"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "f9bd4b97",
+            "id": 121,
+            "mutability": "mutable",
+            "name": "usuarioContract",
+            "nameLocation": "457:15:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "434:38:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UsuarioContract_$353",
+              "typeString": "contract UsuarioContract"
+            },
+            "typeName": {
+              "id": 120,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 119,
+                "name": "UsuarioContract",
+                "nameLocations": [
+                  "434:15:3"
+                ],
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 353,
+                "src": "434:15:3"
+              },
+              "referencedDeclaration": 353,
+              "src": "434:15:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UsuarioContract_$353",
+                "typeString": "contract UsuarioContract"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 164,
+              "nodeType": "Block",
+              "src": "672:309:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 138,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 134,
+                      "name": "productoContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 109,
+                      "src": "683:16:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ProductoContract_$286",
+                        "typeString": "contract ProductoContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 136,
+                          "name": "_productoContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 123,
+                          "src": "719:17:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 135,
+                        "name": "ProductoContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 286,
+                        "src": "702:16:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_ProductoContract_$286_$",
+                          "typeString": "type(contract ProductoContract)"
+                        }
+                      },
+                      "id": 137,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "702:35:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ProductoContract_$286",
+                        "typeString": "contract ProductoContract"
+                      }
+                    },
+                    "src": "683:54:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ProductoContract_$286",
+                      "typeString": "contract ProductoContract"
+                    }
+                  },
+                  "id": 139,
+                  "nodeType": "ExpressionStatement",
+                  "src": "683:54:3"
+                },
+                {
+                  "expression": {
+                    "id": 144,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 140,
+                      "name": "ventaContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 112,
+                      "src": "748:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_VentaContract_$565",
+                        "typeString": "contract VentaContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 142,
+                          "name": "_ventaContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 125,
+                          "src": "778:14:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 141,
+                        "name": "VentaContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 565,
+                        "src": "764:13:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_VentaContract_$565_$",
+                          "typeString": "type(contract VentaContract)"
+                        }
+                      },
+                      "id": 143,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "764:29:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_VentaContract_$565",
+                        "typeString": "contract VentaContract"
+                      }
+                    },
+                    "src": "748:45:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VentaContract_$565",
+                      "typeString": "contract VentaContract"
+                    }
+                  },
+                  "id": 145,
+                  "nodeType": "ExpressionStatement",
+                  "src": "748:45:3"
+                },
+                {
+                  "expression": {
+                    "id": 150,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 146,
+                      "name": "animalContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 115,
+                      "src": "804:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_AnimalContract_$97",
+                        "typeString": "contract AnimalContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 148,
+                          "name": "_animalContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 127,
+                          "src": "836:15:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 147,
+                        "name": "AnimalContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 97,
+                        "src": "821:14:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_AnimalContract_$97_$",
+                          "typeString": "type(contract AnimalContract)"
+                        }
+                      },
+                      "id": 149,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "821:31:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_AnimalContract_$97",
+                        "typeString": "contract AnimalContract"
+                      }
+                    },
+                    "src": "804:48:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_AnimalContract_$97",
+                      "typeString": "contract AnimalContract"
+                    }
+                  },
+                  "id": 151,
+                  "nodeType": "ExpressionStatement",
+                  "src": "804:48:3"
+                },
+                {
+                  "expression": {
+                    "id": 156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 152,
+                      "name": "vacunaContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 118,
+                      "src": "863:14:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_VacunaContract_$455",
+                        "typeString": "contract VacunaContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 154,
+                          "name": "_vacunaContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 129,
+                          "src": "895:15:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 153,
+                        "name": "VacunaContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 455,
+                        "src": "880:14:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_VacunaContract_$455_$",
+                          "typeString": "type(contract VacunaContract)"
+                        }
+                      },
+                      "id": 155,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "880:31:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_VacunaContract_$455",
+                        "typeString": "contract VacunaContract"
+                      }
+                    },
+                    "src": "863:48:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_VacunaContract_$455",
+                      "typeString": "contract VacunaContract"
+                    }
+                  },
+                  "id": 157,
+                  "nodeType": "ExpressionStatement",
+                  "src": "863:48:3"
+                },
+                {
+                  "expression": {
+                    "id": 162,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 158,
+                      "name": "usuarioContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 121,
+                      "src": "922:15:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UsuarioContract_$353",
+                        "typeString": "contract UsuarioContract"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 160,
+                          "name": "_usuarioContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 131,
+                          "src": "956:16:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 159,
+                        "name": "UsuarioContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 353,
+                        "src": "940:15:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_UsuarioContract_$353_$",
+                          "typeString": "type(contract UsuarioContract)"
+                        }
+                      },
+                      "id": 161,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "940:33:3",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_UsuarioContract_$353",
+                        "typeString": "contract UsuarioContract"
+                      }
+                    },
+                    "src": "922:51:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UsuarioContract_$353",
+                      "typeString": "contract UsuarioContract"
+                    }
+                  },
+                  "id": 163,
+                  "nodeType": "ExpressionStatement",
+                  "src": "922:51:3"
+                }
+              ]
+            },
+            "id": 165,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 132,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 123,
+                  "mutability": "mutable",
+                  "name": "_productoContract",
+                  "nameLocation": "511:17:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "503:25:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 122,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "503:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 125,
+                  "mutability": "mutable",
+                  "name": "_ventaContract",
+                  "nameLocation": "547:14:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "539:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 124,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "539:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 127,
+                  "mutability": "mutable",
+                  "name": "_animalContract",
+                  "nameLocation": "580:15:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "572:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 126,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "572:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 129,
+                  "mutability": "mutable",
+                  "name": "_vacunaContract",
+                  "nameLocation": "614:15:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "606:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "606:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 131,
+                  "mutability": "mutable",
+                  "name": "_usuarioContract",
+                  "nameLocation": "648:16:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "640:24:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 130,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "640:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "492:179:3"
+            },
+            "returnParameters": {
+              "id": 133,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "672:0:3"
+            },
+            "scope": 166,
+            "src": "481:500:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 167,
+        "src": "224:760:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:953:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.18+commit.87f61d96.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x9A1B936CedbA710b9eA1B6ffDFD999eeC2DF9830",
+      "transactionHash": "0x76e74533c175f1195dfb2c771bb285c3f52553c5fb02abf86daa097cd6e20536"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-02-24T19:27:29.070Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

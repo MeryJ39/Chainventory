@@ -1,0 +1,1508 @@
+{
+  "contractName": "AnimalContract",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "nombre",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fecha_ingreso",
+          "type": "uint256"
+        }
+      ],
+      "name": "AnimalRegistrado",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "animales",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "id_hembra",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "nombre",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "ganadera",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fecha_ingreso",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fecha_nacimiento",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "edad",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "categoria_ingreso",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "categoria_actual",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "estatus",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fecha_retiro",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "causa_mortalidad",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "siguienteAnimalId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_id_hembra",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_nombre",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_ganadera",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fecha_nacimiento",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_edad",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_categoria_ingreso",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_categoria_actual",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_estatus",
+          "type": "string"
+        }
+      ],
+      "name": "registrarAnimal",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"nombre\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fecha_ingreso\",\"type\":\"uint256\"}],\"name\":\"AnimalRegistrado\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"animales\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"id_hembra\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"nombre\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"ganadera\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fecha_ingreso\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"fecha_nacimiento\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"edad\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"categoria_ingreso\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"categoria_actual\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"estatus\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"fecha_retiro\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"causa_mortalidad\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_id_hembra\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_nombre\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ganadera\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_fecha_nacimiento\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_edad\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_categoria_ingreso\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_categoria_actual\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_estatus\",\"type\":\"string\"}],\"name\":\"registrarAnimal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"siguienteAnimalId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/AnimalContract.sol\":\"AnimalContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[],\"viaIR\":true},\"sources\":{\"project:/contracts/AnimalContract.sol\":{\"keccak256\":\"0x7dd488bc37c904b38113b4e21cd94b6fb9eb5888848972d664ea34b83820dcdd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bc74e439388ea37cd99dc0402d0eb15e0dea2ae3e8616ed2a08237fe435d49d3\",\"dweb:/ipfs/Qme6wDd3Z9wfk8vD24rnTUiyDF6E9D9mB1Lwg4q1MxdZeF\"]}},\"version\":1}",
+  "bytecode": "0x6080806040523461001a5760018055610dca90816100208239f35b600080fdfe6080604052600436101561001257600080fd5b60003560e01c8063ac6131b614610ac7578063b144209c146100605763f65893d21461003d57600080fd5b3461005b57600036600319011261005b576020600154604051908152f35b600080fd5b3461005b5761010036600319011261005b576004356001600160401b03811161005b57610091903690600401610d3e565b6024356001600160401b03811161005b576100b0903690600401610d3e565b6044356001600160401b03811161005b576100cf903690600401610d3e565b60a4356001600160401b03811161005b576100ee903690600401610d3e565b60c4356001600160401b03811161005b5761010d903690600401610d3e565b60e4356001600160401b03811161005b5761012c903690600401610d3e565b91600154936000198514610ab157600185016001556040519661018088018881106001600160401b038211176105c5576040528588526020880152856040880152606087015242608087015260643560a087015260843560c087015260e086015261010085015261012084015260006101408401526040518060208101106001600160401b036020830111176105c55760208101604052600081526101608401528060005260006020526040600020928051845560208101518051906001600160401b0382116105c55781906102056001880154610bfd565b601f8111610a5e575b50602090601f83116001146109ec576000926109e1575b50508160011b916000199060031b1c19161760018501555b60408101518051906001600160401b0382116105c55781906102626002880154610bfd565b601f811161098e575b50602090601f831160011461091c57600092610911575b50508160011b916000199060031b1c19161760028501555b60608101518051906001600160401b0382116105c55781906102bf6003880154610bfd565b601f81116108be575b50602090601f831160011461084c57600092610841575b50508160011b916000199060031b1c19161760038501555b6080810151600485015560a0810151600585015560c0810151600685015560e08101518051906001600160401b0382116105c557819061033a6007880154610bfd565b601f81116107ee575b50602090601f831160011461077c57600092610771575b50508160011b916000199060031b1c19161760078501555b6101008101518051906001600160401b0382116105c55781906103986008880154610bfd565b601f811161071e575b50602090601f83116001146106ac576000926106a1575b50508160011b916000199060031b1c19161760088501555b6101208101518051906001600160401b0382116105c5576103f46009870154610bfd565b601f811161065a575b50602090601f83116001146105e657610160939291600091836105db575b50508160011b916000199060031b1c19161760098601555b610140810151600a86015501519283516001600160401b0381116105c55761045e600b830154610bfd565b601f811161057a575b506020601f82116001146104ec579080600b927f97f51692f330a8954cf8aea3758c2fa607ed820508e1fe59775da6290b02a0b1976000926104e1575b50508160011b916000199060031b1c1916179101555b6104d66040519283928352606060208401526060830190610cfe565b4260408301520390a1005b0151905087806104a4565b601f19821695600b840160005260206000209660005b8181106105625750966001928492600b957f97f51692f330a8954cf8aea3758c2fa607ed820508e1fe59775da6290b02a0b19a10610549575b505050811b019101556104ba565b015160001960f88460031b161c1916905587808061053b565b83830151895560019098019760209384019301610502565b600b83016000526020600020601f830160051c810191602084106105bb575b601f0160051c01905b8181106105af5750610467565b600081556001016105a2565b9091508190610599565b634e487b7160e01b600052604160045260246000fd5b01519050878061041b565b906009870160005260206000209160005b601f198516811061064257509183916001936101609695601f19811610610629575b505050811b016009860155610433565b015160001960f88460031b161c19169055878080610619565b919260206001819286850151815501940192016105f7565b600987016000526020600020601f840160051c81016020851061069a575b601f830160051c8201811061068e5750506103fd565b60008155600101610678565b5080610678565b0151905086806103b8565b9250600887016000526020600020906000935b601f1984168510610703576001945083601f198116106106ea575b505050811b0160088501556103d0565b015160001960f88460031b161c191690558680806106da565b818101518355602094850194600190930192909101906106bf565b909150600887016000526020600020601f840160051c81016020851061076a575b90849392915b601f830160051c8201811061075b5750506103a1565b60008155859450600101610745565b508061073f565b01519050868061035a565b9250600787016000526020600020906000935b601f19841685106107d3576001945083601f198116106107ba575b505050811b016007850155610372565b015160001960f88460031b161c191690558680806107aa565b8181015183556020948501946001909301929091019061078f565b909150600787016000526020600020601f840160051c81016020851061083a575b90849392915b601f830160051c8201811061082b575050610343565b60008155859450600101610815565b508061080f565b0151905086806102df565b9250600387016000526020600020906000935b601f19841685106108a3576001945083601f1981161061088a575b505050811b0160038501556102f7565b015160001960f88460031b161c1916905586808061087a565b8181015183556020948501946001909301929091019061085f565b909150600387016000526020600020601f840160051c81016020851061090a575b90849392915b601f830160051c820181106108fb5750506102c8565b600081558594506001016108e5565b50806108df565b015190508680610282565b9250600287016000526020600020906000935b601f1984168510610973576001945083601f1981161061095a575b505050811b01600285015561029a565b015160001960f88460031b161c1916905586808061094a565b8181015183556020948501946001909301929091019061092f565b909150600287016000526020600020601f840160051c8101602085106109da575b90849392915b601f830160051c820181106109cb57505061026b565b600081558594506001016109b5565b50806109af565b015190508680610225565b9250600187016000526020600020906000935b601f1984168510610a43576001945083601f19811610610a2a575b505050811b01600185015561023d565b015160001960f88460031b161c19169055868080610a1a565b818101518355602094850194600190930192909101906109ff565b909150600187016000526020600020601f840160051c810160208510610aaa575b90849392915b601f830160051c82018110610a9b57505061020e565b60008155859450600101610a85565b5080610a7f565b634e487b7160e01b600052601160045260246000fd5b3461005b57602036600319011261005b5760043560005260006020526040600020805460018201610af790610c58565b91610b0460028201610c58565b90610b1160038201610c58565b6004820154600583015460068401549091610b2e60078601610c58565b91610b3b60088701610c58565b93610b4860098801610c58565b95600a88015497600b01610b5b90610c58565b986040519b8c9b8c528b6101806020819201528c01610b7991610cfe565b8b810360408d0152610b8a91610cfe565b8a810360608c0152610b9b91610cfe565b9260808a015260a089015260c088015286810360e0880152610bbc91610cfe565b858103610100870152610bce91610cfe565b848103610120860152610be091610cfe565b90610140840152828103610160840152610bf991610cfe565b0390f35b90600182811c92168015610c2d575b6020831014610c1757565b634e487b7160e01b600052602260045260246000fd5b91607f1691610c0c565b90601f801991011681019081106001600160401b038211176105c557604052565b9060405191826000825492610c6c84610bfd565b908184526001948581169081600014610cdb5750600114610c98575b5050610c9692500383610c37565b565b9093915060005260209081600020936000915b818310610cc3575050610c9693508201013880610c88565b85548884018501529485019487945091830191610cab565b915050610c9694506020925060ff191682840152151560051b8201013880610c88565b919082519283825260005b848110610d2a575050826000602080949584010152601f8019910116010190565b602081830181015184830182015201610d09565b81601f8201121561005b578035906001600160401b0382116105c55760405192610d72601f8401601f191660200185610c37565b8284526020838301011161005b5781600092602080930183860137830101529056fea264697066735822122059fb3af339895e6bdf7edee17e087fb730e2b5ea2186492b243e2f7313927b0764736f6c63430008120033",
+  "deployedBytecode": "0x6080604052600436101561001257600080fd5b60003560e01c8063ac6131b614610ac7578063b144209c146100605763f65893d21461003d57600080fd5b3461005b57600036600319011261005b576020600154604051908152f35b600080fd5b3461005b5761010036600319011261005b576004356001600160401b03811161005b57610091903690600401610d3e565b6024356001600160401b03811161005b576100b0903690600401610d3e565b6044356001600160401b03811161005b576100cf903690600401610d3e565b60a4356001600160401b03811161005b576100ee903690600401610d3e565b60c4356001600160401b03811161005b5761010d903690600401610d3e565b60e4356001600160401b03811161005b5761012c903690600401610d3e565b91600154936000198514610ab157600185016001556040519661018088018881106001600160401b038211176105c5576040528588526020880152856040880152606087015242608087015260643560a087015260843560c087015260e086015261010085015261012084015260006101408401526040518060208101106001600160401b036020830111176105c55760208101604052600081526101608401528060005260006020526040600020928051845560208101518051906001600160401b0382116105c55781906102056001880154610bfd565b601f8111610a5e575b50602090601f83116001146109ec576000926109e1575b50508160011b916000199060031b1c19161760018501555b60408101518051906001600160401b0382116105c55781906102626002880154610bfd565b601f811161098e575b50602090601f831160011461091c57600092610911575b50508160011b916000199060031b1c19161760028501555b60608101518051906001600160401b0382116105c55781906102bf6003880154610bfd565b601f81116108be575b50602090601f831160011461084c57600092610841575b50508160011b916000199060031b1c19161760038501555b6080810151600485015560a0810151600585015560c0810151600685015560e08101518051906001600160401b0382116105c557819061033a6007880154610bfd565b601f81116107ee575b50602090601f831160011461077c57600092610771575b50508160011b916000199060031b1c19161760078501555b6101008101518051906001600160401b0382116105c55781906103986008880154610bfd565b601f811161071e575b50602090601f83116001146106ac576000926106a1575b50508160011b916000199060031b1c19161760088501555b6101208101518051906001600160401b0382116105c5576103f46009870154610bfd565b601f811161065a575b50602090601f83116001146105e657610160939291600091836105db575b50508160011b916000199060031b1c19161760098601555b610140810151600a86015501519283516001600160401b0381116105c55761045e600b830154610bfd565b601f811161057a575b506020601f82116001146104ec579080600b927f97f51692f330a8954cf8aea3758c2fa607ed820508e1fe59775da6290b02a0b1976000926104e1575b50508160011b916000199060031b1c1916179101555b6104d66040519283928352606060208401526060830190610cfe565b4260408301520390a1005b0151905087806104a4565b601f19821695600b840160005260206000209660005b8181106105625750966001928492600b957f97f51692f330a8954cf8aea3758c2fa607ed820508e1fe59775da6290b02a0b19a10610549575b505050811b019101556104ba565b015160001960f88460031b161c1916905587808061053b565b83830151895560019098019760209384019301610502565b600b83016000526020600020601f830160051c810191602084106105bb575b601f0160051c01905b8181106105af5750610467565b600081556001016105a2565b9091508190610599565b634e487b7160e01b600052604160045260246000fd5b01519050878061041b565b906009870160005260206000209160005b601f198516811061064257509183916001936101609695601f19811610610629575b505050811b016009860155610433565b015160001960f88460031b161c19169055878080610619565b919260206001819286850151815501940192016105f7565b600987016000526020600020601f840160051c81016020851061069a575b601f830160051c8201811061068e5750506103fd565b60008155600101610678565b5080610678565b0151905086806103b8565b9250600887016000526020600020906000935b601f1984168510610703576001945083601f198116106106ea575b505050811b0160088501556103d0565b015160001960f88460031b161c191690558680806106da565b818101518355602094850194600190930192909101906106bf565b909150600887016000526020600020601f840160051c81016020851061076a575b90849392915b601f830160051c8201811061075b5750506103a1565b60008155859450600101610745565b508061073f565b01519050868061035a565b9250600787016000526020600020906000935b601f19841685106107d3576001945083601f198116106107ba575b505050811b016007850155610372565b015160001960f88460031b161c191690558680806107aa565b8181015183556020948501946001909301929091019061078f565b909150600787016000526020600020601f840160051c81016020851061083a575b90849392915b601f830160051c8201811061082b575050610343565b60008155859450600101610815565b508061080f565b0151905086806102df565b9250600387016000526020600020906000935b601f19841685106108a3576001945083601f1981161061088a575b505050811b0160038501556102f7565b015160001960f88460031b161c1916905586808061087a565b8181015183556020948501946001909301929091019061085f565b909150600387016000526020600020601f840160051c81016020851061090a575b90849392915b601f830160051c820181106108fb5750506102c8565b600081558594506001016108e5565b50806108df565b015190508680610282565b9250600287016000526020600020906000935b601f1984168510610973576001945083601f1981161061095a575b505050811b01600285015561029a565b015160001960f88460031b161c1916905586808061094a565b8181015183556020948501946001909301929091019061092f565b909150600287016000526020600020601f840160051c8101602085106109da575b90849392915b601f830160051c820181106109cb57505061026b565b600081558594506001016109b5565b50806109af565b015190508680610225565b9250600187016000526020600020906000935b601f1984168510610a43576001945083601f19811610610a2a575b505050811b01600185015561023d565b015160001960f88460031b161c19169055868080610a1a565b818101518355602094850194600190930192909101906109ff565b909150600187016000526020600020601f840160051c810160208510610aaa575b90849392915b601f830160051c82018110610a9b57505061020e565b60008155859450600101610a85565b5080610a7f565b634e487b7160e01b600052601160045260246000fd5b3461005b57602036600319011261005b5760043560005260006020526040600020805460018201610af790610c58565b91610b0460028201610c58565b90610b1160038201610c58565b6004820154600583015460068401549091610b2e60078601610c58565b91610b3b60088701610c58565b93610b4860098801610c58565b95600a88015497600b01610b5b90610c58565b986040519b8c9b8c528b6101806020819201528c01610b7991610cfe565b8b810360408d0152610b8a91610cfe565b8a810360608c0152610b9b91610cfe565b9260808a015260a089015260c088015286810360e0880152610bbc91610cfe565b858103610100870152610bce91610cfe565b848103610120860152610be091610cfe565b90610140840152828103610160840152610bf991610cfe565b0390f35b90600182811c92168015610c2d575b6020831014610c1757565b634e487b7160e01b600052602260045260246000fd5b91607f1691610c0c565b90601f801991011681019081106001600160401b038211176105c557604052565b9060405191826000825492610c6c84610bfd565b908184526001948581169081600014610cdb5750600114610c98575b5050610c9692500383610c37565b565b9093915060005260209081600020936000915b818310610cc3575050610c9693508201013880610c88565b85548884018501529485019487945091830191610cab565b915050610c9694506020925060ff191682840152151560051b8201013880610c88565b919082519283825260005b848110610d2a575050826000602080949584010152601f8019910116010190565b602081830181015184830182015201610d09565b81601f8201121561005b578035906001600160401b0382116105c55760405192610d72601f8401601f191660200185610c37565b8284526020838301011161005b5781600092602080930183860137830101529056fea264697066735822122059fb3af339895e6bdf7edee17e087fb730e2b5ea2186492b243e2f7313927b0764736f6c63430008120033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "60:1187:1:-:0;;;;;;;531:1;60:1187;;;;;;;;;;;;",
+  "deployedSourceMap": "60:1187:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;499:33;60:1187;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;994:178;;60:1187;994:178;60:1187;994:178;;60:1187;;994:178;;60:1187;1051:15;60:1187;994:178;;60:1187;;;;994:178;;60:1187;;;;994:178;;60:1187;;994:178;;60:1187;;994:178;;60:1187;994:178;;;60:1187;;994:178;;;60:1187;;;;;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;;;;994:178;;;60:1187;;;;;;;;;;;;;;;;994:178;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;60:1187;;;;;;994:178;;60:1187;;;;;;994:178;;60:1187;;;;;;994:178;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;994:178;;60:1187;;;;;;;;;;;;;;;;;;;;;;;;;;;;994:178;;;60:1187;;;;;994:178;60:1187;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;1190:46;60:1187;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1051:15;60:1187;;;;1190:46;;;60:1187;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1190:46;60:1187;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;994:178;60:1187;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;-1:-1:-1;60:1187:1;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;-1:-1:-1;60:1187:1;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;-1:-1:-1;60:1187:1;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;-1:-1:-1;60:1187:1;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;;;;;;;;;;;;;453:39;;;;;:::i;:::-;;;;;;;:::i;:::-;;;60:1187;453:39;;;:::i;:::-;60:1187;453:39;;60:1187;453:39;;;60:1187;453:39;;;60:1187;;;453:39;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;60:1187;453:39;;;;;;:::i;:::-;60:1187;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;:::o;:::-;;;;;;-1:-1:-1;60:1187:1;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;:::o;:::-;;;;;-1:-1:-1;60:1187:1;;;;-1:-1:-1;60:1187:1;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;60:1187:1;;;;;;;;;;;-1:-1:-1;;60:1187:1;;;;;:::i;:::-;;;;;;;;;;;;;-1:-1:-1;60:1187:1;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract AnimalContract {\r\n    struct Animal {\r\n        uint id;\r\n        string id_hembra;\r\n        string nombre;\r\n        string ganadera;\r\n        uint fecha_ingreso;\r\n        uint fecha_nacimiento;\r\n        uint edad;\r\n        string categoria_ingreso;\r\n        string categoria_actual;\r\n        string estatus;\r\n        uint fecha_retiro;\r\n        string causa_mortalidad;\r\n    }\r\n\r\n    mapping(uint => Animal) public animales;\r\n    uint public siguienteAnimalId = 1;\r\n\r\n    event AnimalRegistrado(uint id, string nombre, uint fecha_ingreso);\r\n\r\n    function registrarAnimal(\r\n        string memory _id_hembra,\r\n        string memory _nombre,\r\n        string memory _ganadera,\r\n        uint _fecha_nacimiento,\r\n        uint _edad,\r\n        string memory _categoria_ingreso,\r\n        string memory _categoria_actual,\r\n        string memory _estatus\r\n    ) public {\r\n        uint id = siguienteAnimalId++;\r\n        animales[id] = Animal(\r\n            id, _id_hembra, _nombre, _ganadera, block.timestamp, _fecha_nacimiento,\r\n            _edad, _categoria_ingreso, _categoria_actual, _estatus, 0, \"\"\r\n        );\r\n\r\n        emit AnimalRegistrado(id, _nombre, block.timestamp);\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Raul\\Documents\\GitHub\\Chainventory\\Chainventory\\truffle\\contracts\\AnimalContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/AnimalContract.sol",
+    "exportedSymbols": {
+      "AnimalContract": [
+        97
+      ]
+    },
+    "id": 98,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "AnimalContract",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 97,
+        "linearizedBaseContracts": [
+          97
+        ],
+        "name": "AnimalContract",
+        "nameLocation": "69:14:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "AnimalContract.Animal",
+            "id": 28,
+            "members": [
+              {
+                "constant": false,
+                "id": 5,
+                "mutability": "mutable",
+                "name": "id",
+                "nameLocation": "121:2:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "116:7:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "116:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 7,
+                "mutability": "mutable",
+                "name": "id_hembra",
+                "nameLocation": "141:9:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "134:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 6,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "134:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 9,
+                "mutability": "mutable",
+                "name": "nombre",
+                "nameLocation": "168:6:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "161:13:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 8,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "161:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 11,
+                "mutability": "mutable",
+                "name": "ganadera",
+                "nameLocation": "192:8:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "185:15:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 10,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "185:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 13,
+                "mutability": "mutable",
+                "name": "fecha_ingreso",
+                "nameLocation": "216:13:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "211:18:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 12,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "211:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 15,
+                "mutability": "mutable",
+                "name": "fecha_nacimiento",
+                "nameLocation": "245:16:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "240:21:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 14,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "240:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 17,
+                "mutability": "mutable",
+                "name": "edad",
+                "nameLocation": "277:4:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "272:9:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 16,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "272:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 19,
+                "mutability": "mutable",
+                "name": "categoria_ingreso",
+                "nameLocation": "299:17:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "292:24:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 18,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "292:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 21,
+                "mutability": "mutable",
+                "name": "categoria_actual",
+                "nameLocation": "334:16:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "327:23:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 20,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "327:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23,
+                "mutability": "mutable",
+                "name": "estatus",
+                "nameLocation": "368:7:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "361:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 22,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "361:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 25,
+                "mutability": "mutable",
+                "name": "fecha_retiro",
+                "nameLocation": "391:12:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "386:17:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 24,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "386:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 27,
+                "mutability": "mutable",
+                "name": "causa_mortalidad",
+                "nameLocation": "421:16:1",
+                "nodeType": "VariableDeclaration",
+                "scope": 28,
+                "src": "414:23:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 26,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "414:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Animal",
+            "nameLocation": "98:6:1",
+            "nodeType": "StructDefinition",
+            "scope": 97,
+            "src": "91:354:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "ac6131b6",
+            "id": 33,
+            "mutability": "mutable",
+            "name": "animales",
+            "nameLocation": "484:8:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 97,
+            "src": "453:39:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Animal_$28_storage_$",
+              "typeString": "mapping(uint256 => struct AnimalContract.Animal)"
+            },
+            "typeName": {
+              "id": 32,
+              "keyName": "",
+              "keyNameLocation": "-1:-1:-1",
+              "keyType": {
+                "id": 29,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "461:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "453:23:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Animal_$28_storage_$",
+                "typeString": "mapping(uint256 => struct AnimalContract.Animal)"
+              },
+              "valueName": "",
+              "valueNameLocation": "-1:-1:-1",
+              "valueType": {
+                "id": 31,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 30,
+                  "name": "Animal",
+                  "nameLocations": [
+                    "469:6:1"
+                  ],
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 28,
+                  "src": "469:6:1"
+                },
+                "referencedDeclaration": 28,
+                "src": "469:6:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Animal_$28_storage_ptr",
+                  "typeString": "struct AnimalContract.Animal"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "f65893d2",
+            "id": 36,
+            "mutability": "mutable",
+            "name": "siguienteAnimalId",
+            "nameLocation": "511:17:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 97,
+            "src": "499:33:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 34,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "499:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "31",
+              "id": 35,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "531:1:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
+              },
+              "value": "1"
+            },
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "97f51692f330a8954cf8aea3758c2fa607ed820508e1fe59775da6290b02a0b1",
+            "id": 44,
+            "name": "AnimalRegistrado",
+            "nameLocation": "547:16:1",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 43,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nameLocation": "569:2:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44,
+                  "src": "564:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 37,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "564:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 40,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "nombre",
+                  "nameLocation": "580:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44,
+                  "src": "573:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 39,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "573:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 42,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "fecha_ingreso",
+                  "nameLocation": "593:13:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 44,
+                  "src": "588:18:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 41,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "588:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "563:44:1"
+            },
+            "src": "541:67:1"
+          },
+          {
+            "body": {
+              "id": 95,
+              "nodeType": "Block",
+              "src": "928:316:1",
+              "statements": [
+                {
+                  "assignments": [
+                    64
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 64,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "nameLocation": "944:2:1",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 95,
+                      "src": "939:7:1",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 63,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "939:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 67,
+                  "initialValue": {
+                    "id": 66,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "949:19:1",
+                    "subExpression": {
+                      "id": 65,
+                      "name": "siguienteAnimalId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 36,
+                      "src": "949:17:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "939:29:1"
+                },
+                {
+                  "expression": {
+                    "id": 86,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 68,
+                        "name": "animales",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 33,
+                        "src": "979:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Animal_$28_storage_$",
+                          "typeString": "mapping(uint256 => struct AnimalContract.Animal storage ref)"
+                        }
+                      },
+                      "id": 70,
+                      "indexExpression": {
+                        "id": 69,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 64,
+                        "src": "988:2:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "979:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Animal_$28_storage",
+                        "typeString": "struct AnimalContract.Animal storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 72,
+                          "name": "id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 64,
+                          "src": "1015:2:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 73,
+                          "name": "_id_hembra",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 46,
+                          "src": "1019:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 74,
+                          "name": "_nombre",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 48,
+                          "src": "1031:7:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 75,
+                          "name": "_ganadera",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 50,
+                          "src": "1040:9:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "expression": {
+                            "id": 76,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967292,
+                            "src": "1051:5:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 77,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "1057:9:1",
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "src": "1051:15:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 78,
+                          "name": "_fecha_nacimiento",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 52,
+                          "src": "1068:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 79,
+                          "name": "_edad",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 54,
+                          "src": "1100:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 80,
+                          "name": "_categoria_ingreso",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 56,
+                          "src": "1107:18:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 81,
+                          "name": "_categoria_actual",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 58,
+                          "src": "1127:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "id": 82,
+                          "name": "_estatus",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 60,
+                          "src": "1146:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "hexValue": "30",
+                          "id": 83,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1156:1:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        {
+                          "hexValue": "",
+                          "id": 84,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "string",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1159:2:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          },
+                          "value": ""
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          {
+                            "typeIdentifier": "t_stringliteral_c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+                            "typeString": "literal_string \"\""
+                          }
+                        ],
+                        "id": 71,
+                        "name": "Animal",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28,
+                        "src": "994:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Animal_$28_storage_ptr_$",
+                          "typeString": "type(struct AnimalContract.Animal storage pointer)"
+                        }
+                      },
+                      "id": 85,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "994:178:1",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Animal_$28_memory_ptr",
+                        "typeString": "struct AnimalContract.Animal memory"
+                      }
+                    },
+                    "src": "979:193:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Animal_$28_storage",
+                      "typeString": "struct AnimalContract.Animal storage ref"
+                    }
+                  },
+                  "id": 87,
+                  "nodeType": "ExpressionStatement",
+                  "src": "979:193:1"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 89,
+                        "name": "id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 64,
+                        "src": "1207:2:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 90,
+                        "name": "_nombre",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 48,
+                        "src": "1211:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 91,
+                          "name": "block",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 4294967292,
+                          "src": "1220:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_block",
+                            "typeString": "block"
+                          }
+                        },
+                        "id": 92,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1226:9:1",
+                        "memberName": "timestamp",
+                        "nodeType": "MemberAccess",
+                        "src": "1220:15:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 88,
+                      "name": "AnimalRegistrado",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 44,
+                      "src": "1190:16:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,string memory,uint256)"
+                      }
+                    },
+                    "id": 93,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1190:46:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 94,
+                  "nodeType": "EmitStatement",
+                  "src": "1185:51:1"
+                }
+              ]
+            },
+            "functionSelector": "b144209c",
+            "id": 96,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "registrarAnimal",
+            "nameLocation": "625:15:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 61,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 46,
+                  "mutability": "mutable",
+                  "name": "_id_hembra",
+                  "nameLocation": "665:10:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "651:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 45,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "651:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48,
+                  "mutability": "mutable",
+                  "name": "_nombre",
+                  "nameLocation": "700:7:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "686:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 47,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "686:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 50,
+                  "mutability": "mutable",
+                  "name": "_ganadera",
+                  "nameLocation": "732:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "718:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 49,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "718:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 52,
+                  "mutability": "mutable",
+                  "name": "_fecha_nacimiento",
+                  "nameLocation": "757:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "752:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 51,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "752:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 54,
+                  "mutability": "mutable",
+                  "name": "_edad",
+                  "nameLocation": "790:5:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "785:10:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 53,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "785:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 56,
+                  "mutability": "mutable",
+                  "name": "_categoria_ingreso",
+                  "nameLocation": "820:18:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "806:32:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 55,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "806:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 58,
+                  "mutability": "mutable",
+                  "name": "_categoria_actual",
+                  "nameLocation": "863:17:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "849:31:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 57,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "849:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 60,
+                  "mutability": "mutable",
+                  "name": "_estatus",
+                  "nameLocation": "905:8:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 96,
+                  "src": "891:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 59,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "891:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "640:280:1"
+            },
+            "returnParameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "928:0:1"
+            },
+            "scope": 97,
+            "src": "616:628:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 98,
+        "src": "60:1187:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:1216:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.18+commit.87f61d96.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xDd62810f7E1134008792B8cC0Da5911949009d30",
+      "transactionHash": "0x2af8e836b9a3e6e5f3c255c892e9c391d758a981750fa7f0876054bf115d6cd3"
+    }
+  },
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-02-24T19:27:29.065Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
