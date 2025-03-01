@@ -1,63 +1,12 @@
-import getWeb3 from "../utils/web3"; // Importa getWeb3 desde la ubicación correcta
+import web3 from "../utils/web3"; // Importa getWeb3 desde la ubicación correcta
 import React, { useState, useEffect } from "react";
-import { getContract } from "../utils/contract";
 import { Card, Input, Button, Typography } from "@material-tailwind/react"; // Importa los componentes de Material Tailwind
 
 const Inventario = () => {
-  const [productoNombre, setProductoNombre] = useState("");
-  const [productoCantidad, setProductoCantidad] = useState(0);
-  const [account, setAccount] = useState("");
-  const [loading, setLoading] = useState(false); // Estado para controlar la carga
-
-  useEffect(() => {
-    // Cargar la cuenta actual
-    const loadAccount = async () => {
-      const web3 = await getWeb3();
-      const accounts = await web3.eth.getAccounts();
-      setAccount(accounts[0]);
-    };
-    loadAccount();
-  }, []);
-
-  // Función para registrar un nuevo producto
-  const registrarProducto = async () => {
-    try {
-      setLoading(true); // Inicia el loading
-      const contract = await getContract();
-      const web3 = await getWeb3();
-
-      // Estimamos el gas necesario para la transacción
-      const gas = await contract.methods
-        .registrarProducto(productoNombre, productoCantidad)
-        .estimateGas({ from: account });
-
-      // Ejecutamos la transacción con el gas estimado
-      await contract.methods
-        .registrarProducto(productoNombre, productoCantidad)
-        .send({ from: account, gas })
-        .on("transactionHash", (hash) => {
-          console.log("Hash de la transacción:", hash); // Puedes hacer algo con el hash
-        })
-        .on("receipt", (receipt) => {
-          console.log("Recibo de la transacción:", receipt); // Ver recibo de la transacción
-          alert("Producto registrado!");
-        })
-        .on("error", (error) => {
-          console.error("Error en la transacción:", error);
-          alert("Error al registrar el producto.");
-        });
-    } catch (error) {
-      console.error("Error al registrar el producto:", error);
-      alert("Ocurrió un error al registrar el producto.");
-    } finally {
-      setLoading(false); // Detiene el loading
-    }
-  };
-
   return (
-    <div className="flex justify-center items-center min-h-screen">
-      <Card color="transparent" shadow={false} className="w-96 p-6">
-        <Typography variant="h4" color="blue-gray" className="text-center mb-6">
+    <div className="flex items-center justify-center min-h-screen">
+      <Card color="transparent" shadow={false} className="p-6 w-96">
+        <Typography variant="h4" color="blue-gray" className="mb-6 text-center">
           Registrar Producto
         </Typography>
 

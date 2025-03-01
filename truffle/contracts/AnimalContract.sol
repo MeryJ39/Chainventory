@@ -21,7 +21,11 @@ contract AnimalContract {
     uint public siguienteAnimalId = 1;
 
     event AnimalRegistrado(uint id, string nombre, uint fecha_ingreso);
+    event AnimalActualizado(uint id, string nombre, uint fecha_ingreso);
+    event AnimalRetirado(uint id, string causa, uint fecha_retiro);
+    event CategoriaCambiada(uint id, string nueva_categoria);
 
+    // 📌 Registrar un nuevo animal
     function registrarAnimal(
         string memory _id_hembra,
         string memory _nombre,
@@ -39,5 +43,71 @@ contract AnimalContract {
         );
 
         emit AnimalRegistrado(id, _nombre, block.timestamp);
+    }
+
+    // 📌 Obtener los datos de un animal por su ID
+    function obtenerAnimal(uint _id) public view returns (
+        string memory, string memory, string memory, uint, uint, uint,
+        string memory, string memory, string memory, uint, string memory
+    ) {
+        require(animales[_id].id != 0, "Animal no encontrado");
+
+        Animal memory animal = animales[_id];
+        return (
+            animal.id_hembra, animal.nombre, animal.ganadera, animal.fecha_ingreso,
+            animal.fecha_nacimiento, animal.edad, animal.categoria_ingreso,
+            animal.categoria_actual, animal.estatus, animal.fecha_retiro,
+            animal.causa_mortalidad
+        );
+    }
+
+    // 📌 Listar todos los animales
+    function listarAnimales() public view returns (Animal[] memory) {
+        Animal[] memory lista = new Animal[](siguienteAnimalId - 1);
+        for (uint i = 1; i < siguienteAnimalId; i++) {
+            lista[i - 1] = animales[i];
+        }
+        return lista;
+    }
+
+    // 📌 Actualizar los datos de un animal
+    function actualizarAnimal(
+        uint _id,
+        string memory _nombre,
+        string memory _ganadera,
+        uint _edad,
+        string memory _estatus
+    ) public {
+        require(animales[_id].id != 0, "Animal no encontrado");
+
+        Animal storage animal = animales[_id];
+        animal.nombre = _nombre;
+        animal.ganadera = _ganadera;
+        animal.edad = _edad;
+        animal.estatus = _estatus;
+
+        emit AnimalActualizado(_id, _nombre, animal.fecha_ingreso);
+    }
+
+    // 📌 Retirar un animal (por venta, muerte, etc.)
+    function retirarAnimal(uint _id, string memory _causa) public {
+        require(animales[_id].id != 0, "Animal no encontrado");
+
+        Animal storage animal = animales[_id];
+        animal.fecha_retiro = block.timestamp;
+        animal.causa_mortalidad = _causa;
+        animal.estatus = "Retirado";
+
+        emit AnimalRetirado(_id, _causa, block.timestamp);
+    }
+
+    // 📌 Cambiar la categoría de un animal
+    function cambiarCategoria(uint _id, string memory _nuevaCategoria) public {
+        require(animales[_id].id != 0, "Animal no encontrado");
+
+        Animal storage animal = animales[_id];
+        animal.categoria_actual = _nuevaCategoria;
+
+        emit CategoriaCambiada(_id, _nuevaCategoria);
     }
 }

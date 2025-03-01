@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { registrarUsuario } from "../services/usuarioService"; // 🔥 Importamos la función para registrar en blockchain
 import {
   Card,
   Input,
@@ -8,23 +8,28 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import ThemeToggle from "../components/ThemeToggle";
 
 const Register = () => {
-  const { register, loading } = useAuth();
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rol] = useState("administrador"); // 🔥 Definimos un rol por defecto en blockchain
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      await register(username, email, password);
-      navigate("/login");
+      // 🔥 Registrar usuario SOLO en blockchain
+      await registrarUsuario(username, password, rol);
+      alert("✅ Usuario registrado en blockchain");
+
+      navigate("/login"); // Redirige al login después del registro
     } catch (error) {
-      console.error("Error durante el registro:", error);
-      alert("Error durante el registro, por favor intente nuevamente.");
+      console.error("❌ Error durante el registro en blockchain:", error);
+      alert("Error en el registro, intenta de nuevo.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,16 +52,6 @@ const Register = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Nombre de usuario"
-                className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-text"
-              />
-            </div>
-            <div>
-              <Typography variant="h6">Correo Electrónico</Typography>
-              <Input
-                size="lg"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="correo@hotmail.com"
                 className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-text"
               />
             </div>

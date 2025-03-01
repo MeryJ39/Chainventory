@@ -5,12 +5,13 @@ import GanaderiaInventarioABI from "../../truffle/contracts/GanaderiaInventario.
 
 const networkId = Object.keys(GanaderiaInventarioABI.networks)[0]; // Obtiene la primera red disponible
 
-if (!networkId) {
-  throw new Error("Contrato no desplegado en la red actual.");
-}
 // Dirección del contrato desplegado en Ganache (o la red que estés usando)
 console.log(networkId);
 const contractAddress = GanaderiaInventarioABI.networks[networkId]?.address; // Dirección del contrato
+
+if (!contractAddress) {
+  console.error("⚠️ No se encontró la dirección del contrato.");
+}
 
 const contract = new web3.eth.Contract(
   GanaderiaInventarioABI.abi,

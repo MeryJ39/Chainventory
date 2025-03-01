@@ -1,8 +1,6 @@
-//Registro y seguimiento de vacunaciones del ganado.
 import React, { useState, useEffect } from "react";
 import {
   Card,
-  CardHeader,
   CardBody,
   Typography,
   IconButton,
@@ -13,59 +11,141 @@ import {
   Option,
 } from "@material-tailwind/react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
-import useVaccinations from "../hooks/useVaccinations";
+import {
+  listarVacunas,
+  registrarVacuna,
+  actualizarVacuna,
+  eliminarVacuna,
+} from "../services/vacunaService";
+import { listarAnimales } from "../services/animalService"; // 📌 Para obtener los animales
 
 const Vacunaciones = () => {
-  const {
-    vaccinations,
-    loading,
-    error,
-    fetchVaccinations,
-    addVaccination,
-    updateVaccination,
-    deleteVaccination,
-  } = useVaccinations();
+  const [vaccinations, setVaccinations] = useState([]);
+  const [animales, setAnimales] = useState([]); // 📌 Lista de animales para el select
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const [newVaccination, setNewVaccination] = useState({
-    id_vacuna: "",
-    fecha_registro: "",
-    id_hembra: "",
+  const initialFormState = {
+    idHembra: "",
     especie: "",
     raza: "",
     edad: "",
-    tipo_vacuna: "",
-    dosis_administrada: "",
-    fecha_proxima_dosis: "",
+    tipoVacuna: "",
+    dosisAdministrada: "",
+    fechaProximaDosis: "",
     veterinario: "",
     observaciones: "",
-    id_animal: "",
-  });
-
-  useEffect(() => {
-    fetchVaccinations();
-  }, []);
-
-  const handleChange = (e) => {
-    setNewVaccination({ ...newVaccination, [e.target.name]: e.target.value });
+    idAnimal: "",
   };
 
-  const handleSubmit = async (e) => {
+  const [formData, setFormData] = useState(initialFormState);
+  const [editMode, setEditMode] = useState(false);
+  const [vacunaId, setVacunaId] = useState(null);
+
+  // 📌 Cargar las vacunas desde la blockchain al montar el componente
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const vacunas = await listarVacunas();
+        const listaAnimales = await listarAnimales();
+        setVaccinations(vacunas);
+        setAnimales(listaAnimales);
+      } catch (error) {
+        console.error("❌ Error al obtener datos:", error);
+        setError("Error al cargar vacunaciones.");
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  // 📌 Manejar cambios en los inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // 📌 Manejar cambios en el `select` de animales
+  const handleAnimalChange = (idAnimal) => {
+    setFormData({ ...formData, idAnimal });
+  };
+
+  // 📌 Registrar una nueva vacuna
+  const handleCreate = async (e) => {
     e.preventDefault();
-    await addVaccination(newVaccination);
-    setNewVaccination({
-      id_vacuna: "",
-      fecha_registro: "",
-      id_hembra: "",
-      especie: "",
-      raza: "",
-      edad: "",
-      tipo_vacuna: "",
-      dosis_administrada: "",
-      fecha_proxima_dosis: "",
-      veterinario: "",
-      observaciones: "",
-      id_animal: "",
-    });
+    try {
+      await registrarVacuna(
+        formData.idHembra,
+        formData.especie,
+        formData.raza,
+        formData.edad,
+        formData.tipoVacuna,
+        formData.dosisAdministrada,
+        new Date(formData.fechaProximaDosis).toISOString(), // 🔥 Convertimos a string compatible
+        formData.veterinario,
+        formData.observaciones,
+        formData.idAnimal
+      );
+      alert("✅ Vacuna registrada con éxito");
+      setVaccinations(await listarVacunas());
+      resetForm();
+    } catch (error) {
+      alert("❌ Error al registrar la vacuna");
+      console.error("Error:", error);
+    }
+  };
+
+  // 📌 Cargar datos de una vacuna para edición
+  const handleEdit = (vacuna) => {
+    setEditMode(true);
+    setVacunaId(vacuna.id);
+    setFormData({ ...vacuna });
+  };
+
+  // 📌 Actualizar una vacuna existente
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      await actualizarVacuna(
+        vacunaId,
+        formData.idHembra,
+        formData.especie,
+        formData.raza,
+        formData.edad,
+        formData.tipoVacuna,
+        formData.dosisAdministrada,
+        formData.fechaProximaDosis,
+        formData.veterinario,
+        formData.observaciones
+      );
+      alert("✅ Vacuna actualizada con éxito");
+      setEditMode(false);
+      setVacunaId(null);
+      setVaccinations(await listarVacunas());
+      resetForm();
+    } catch (error) {
+      alert("❌ Error al actualizar la vacuna");
+      console.error("Error:", error);
+    }
+  };
+
+  // 📌 Eliminar una vacuna
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Estás seguro de eliminar esta vacuna?")) {
+      try {
+        await eliminarVacuna(id);
+        alert("✅ Vacuna eliminada con éxito");
+        setVaccinations(await listarVacunas());
+      } catch (error) {
+        alert("❌ Error al eliminar la vacuna");
+        console.error("Error:", error);
+      }
+    }
+  };
+
+  // 📌 Resetear el formulario
+  const resetForm = () => {
+    setFormData(initialFormState);
   };
 
   return (
@@ -73,41 +153,31 @@ const Vacunaciones = () => {
       <CardBody className="space-y-4 bg-background">
         <Typography variant="h5">Registro de Vacunaciones</Typography>
         {loading && <p>Cargando...</p>}
-        {error && <p>Error: {error}</p>}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input
-            label="ID Vacuna"
-            name="id_vacuna"
-            value={newVaccination.id_vacuna}
-            onChange={handleChange}
-            required
-          />
-          <Input
-            label="Fecha Registro"
-            name="fecha_registro"
-            type="date"
-            value={newVaccination.fecha_registro}
-            onChange={handleChange}
-            required
-          />
+        {error && <p className="text-red-500">{error}</p>}
+
+        {/* 📌 Formulario de Vacunación */}
+        <form
+          onSubmit={editMode ? handleUpdate : handleCreate}
+          className="space-y-4"
+        >
           <Input
             label="ID Hembra"
-            name="id_hembra"
-            value={newVaccination.id_hembra}
+            name="idHembra"
+            value={formData.idHembra}
             onChange={handleChange}
             required
           />
           <Input
             label="Especie"
             name="especie"
-            value={newVaccination.especie}
+            value={formData.especie}
             onChange={handleChange}
             required
           />
           <Input
             label="Raza"
             name="raza"
-            value={newVaccination.raza}
+            value={formData.raza}
             onChange={handleChange}
             required
           />
@@ -115,77 +185,86 @@ const Vacunaciones = () => {
             label="Edad"
             name="edad"
             type="number"
-            value={newVaccination.edad}
+            value={formData.edad}
             onChange={handleChange}
             required
           />
           <Input
             label="Tipo de Vacuna"
-            name="tipo_vacuna"
-            value={newVaccination.tipo_vacuna}
+            name="tipoVacuna"
+            value={formData.tipoVacuna}
             onChange={handleChange}
             required
           />
           <Input
             label="Dosis Administrada"
-            name="dosis_administrada"
+            name="dosisAdministrada"
             type="number"
-            step="0.01"
-            value={newVaccination.dosis_administrada}
+            value={formData.dosisAdministrada}
             onChange={handleChange}
+            min="0" // Evita números negativos en el input
+            step="1" // 🔥 Solo permite números enteros
             required
           />
+
           <Input
             label="Fecha Próxima Dosis"
-            name="fecha_proxima_dosis"
+            name="fechaProximaDosis"
             type="date"
-            value={newVaccination.fecha_proxima_dosis}
+            value={formData.fechaProximaDosis}
             onChange={handleChange}
             required
           />
           <Input
             label="Veterinario"
             name="veterinario"
-            value={newVaccination.veterinario}
+            value={formData.veterinario}
             onChange={handleChange}
             required
           />
           <Input
             label="Observaciones"
             name="observaciones"
-            value={newVaccination.observaciones}
+            value={formData.observaciones}
             onChange={handleChange}
           />
-          <Input
-            label="ID Animal"
-            name="id_animal"
-            value={newVaccination.id_animal}
-            onChange={handleChange}
-            required
-          />
-          <Button type="submit">Registrar Vacuna</Button>
+
+          {/* 📌 Select de Animales */}
+          <Select
+            label="Seleccionar Animal"
+            value={formData.idAnimal}
+            onChange={handleAnimalChange}
+          >
+            {animales.map((animal) => (
+              <Option key={animal.id} value={animal.id}>
+                {animal.nombre} - ID: {animal.id}
+              </Option>
+            ))}
+          </Select>
+
+          <Button type="submit">
+            {editMode ? "Actualizar Vacuna" : "Registrar Vacuna"}
+          </Button>
         </form>
+
+        {/* 📌 Lista de Vacunas */}
         <div className="mt-6">
           <Typography variant="h6">Lista de Vacunaciones</Typography>
           {vaccinations.map((vacuna) => (
             <div
-              key={vacuna.id_vacuna}
+              key={vacuna.id}
               className="flex items-center justify-between p-2 border-b"
             >
               <Typography>
-                {vacuna.tipo_vacuna} - {vacuna.veterinario}
+                {vacuna.tipoVacuna} - {vacuna.veterinario}
               </Typography>
               <div className="flex gap-2">
-                <IconButton
-                  onClick={() =>
-                    updateVaccination(vacuna.id_vacuna, newVaccination)
-                  }
-                >
+                <IconButton onClick={() => handleEdit(vacuna)}>
                   <Tooltip content="Editar">
                     <PencilIcon className="w-5 h-5" />
                   </Tooltip>
                 </IconButton>
-                <IconButton onClick={() => deleteVaccination(vacuna.id_vacuna)}>
+                <IconButton onClick={() => handleDelete(vacuna.id)}>
                   <Tooltip content="Eliminar">
                     <TrashIcon className="w-5 h-5" />
                   </Tooltip>

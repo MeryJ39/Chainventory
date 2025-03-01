@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authContext"; // 🔥 Importamos el contexto de autenticación
 import {
   Button,
   Menu,
@@ -8,7 +9,6 @@ import {
   MenuList,
   Typography,
 } from "@material-tailwind/react";
-import { AuthContext } from "../context/authContext";
 import {
   ChevronDownIcon,
   PowerIcon,
@@ -25,13 +25,14 @@ const profileMenuItems = [
 ];
 
 const Dashboard = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext); // 🔥 Obtenemos el usuario y la función de logout
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    if (!user) window.location.href = "/";
-  }, [user]);
+  const handleLogout = () => {
+    logout(); // 🔥 Cerramos sesión
+    navigate("/"); // 🔥 Redirigimos al home
+  };
 
   return (
     <div className="flex flex-col h-screen transition-colors delay-300 bg-background">
@@ -40,12 +41,14 @@ const Dashboard = () => {
         <Sidebar />
 
         <div className="flex items-center gap-4">
+          {/* 🔥 Mostrar nombre del usuario autenticado */}
           <Typography
             variant="small"
             className="font-medium transition-colors delay-300 text-text"
           >
-            {user?.username || "Cargando..."}
+            {user ? user.username : "Invitado"}
           </Typography>
+
           <ThemeToggle />
 
           <Menu
@@ -60,7 +63,7 @@ const Dashboard = () => {
                 className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5"
               >
                 <Avvvatars
-                  value={user?.email || "user@gmail.com"}
+                  value={user ? user.username : "guest@example.com"}
                   className="w-full h-full"
                   style="character"
                   shadow
@@ -92,13 +95,15 @@ const Dashboard = () => {
                   </Typography>
                 </MenuItem>
               ))}
+
+              {/* 🔥 Botón para cerrar sesión */}
               <MenuItem
-                onClick={logout}
+                onClick={handleLogout}
                 className="flex items-center gap-2 rounded hover:bg-red-500/10"
               >
                 <PowerIcon className="w-4 h-4 text-red-500" />
                 <Typography as="span" variant="small" color="red">
-                  Sign out
+                  Cerrar sesión
                 </Typography>
               </MenuItem>
             </MenuList>
