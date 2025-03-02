@@ -11,6 +11,8 @@ export const AuthProvider = ({ children }) => {
   // 📌 Función para hacer login usando blockchain
   const login = async (username, password) => {
     setLoading(true);
+    console.log("🔒 Validando usuario...");
+    console.log("👤 Usuario:", username);
     const result = await validarUsuario(username, password);
 
     if (result.success) {

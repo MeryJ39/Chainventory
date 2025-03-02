@@ -5334,14 +5334,103 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0xac0b1afe74352c0b42a6797834139e0c52f46be153db6985018ee60f1ac57183": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            }
+          ],
+          "name": "ContrasenaCambiada",
+          "type": "event"
+        },
+        "0xf169fee9429dec5fe299bc20fad59e202ba19e0208ab4243066321607bee298d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "nuevoRol",
+              "type": "string"
+            }
+          ],
+          "name": "RolCambiado",
+          "type": "event"
+        },
+        "0xbdb4142fae2bea7796c619f1bc0a0abc2043898c5e22fc9f426d4e50a4ae5842": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            }
+          ],
+          "name": "UsuarioEliminado",
+          "type": "event"
+        },
+        "0x6ff1946b9c3819a0324594229aa748d06ee27a695e230fb2a3a13281cd6d1049": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "rol",
+              "type": "string"
+            }
+          ],
+          "name": "UsuarioRegistrado",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0x14166Ff30913847Bc8d010344B1E6A5E7c2314ba",
-      "transactionHash": "0x33f3484fcca6958114eb7c0b743fad9798df6fbaff382b2fbba74305a6d4e695"
+      "address": "0x3AF536286249c16649B965342eB737FdcA579dC0",
+      "transactionHash": "0x49e5b1ae9601c89968d413b82fef07b843652060fa5c599b5455b241d0502857"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-03-01T17:35:11.758Z",
+  "updatedAt": "2025-03-02T18:57:47.920Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

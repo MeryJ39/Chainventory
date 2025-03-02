@@ -1,5 +1,6 @@
 import web3 from "../utils/web3";
 import productoContract from "../utils/contracts/productoContract";
+import { N } from "ethers";
 
 // 📌 Función para registrar un producto
 export const registrarProducto = async (
@@ -143,6 +144,10 @@ export const listarProductos = async () => {
       raza: producto.raza,
       cantidad: Number(producto.cantidad),
       activo: producto.activo,
+
+      observaciones: producto.observaciones,
+      destino: producto.destino,
+      saldo: Number(producto[11]),
     }));
   } catch (error) {
     console.error("❌ Error al listar productos:", error);
