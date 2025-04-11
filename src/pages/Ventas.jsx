@@ -6,6 +6,7 @@ import {
   eliminarVenta,
 } from "../services/ventaService";
 import { listarAnimales } from "../services/animalService";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 export default function Ventas() {
   const [ventas, setVentas] = useState([]);
@@ -125,7 +126,7 @@ export default function Ventas() {
             </div>
           ) : (
             <div key={key}>
-              <label className="block mb-1 text-sm font-medium text-text">
+              <label className="block mb-1 text-sm font-medium capitalize text-text">
                 {key.replace(/([A-Z])/g, " $1")}
               </label>
               <input
@@ -171,18 +172,18 @@ export default function Ventas() {
                 <tr key={venta.id} className="border-b">
                   <td className="p-3">{venta.comprador}</td>
                   <td className="p-3">{Number(venta.totalBs).toFixed(2)} Bs</td>
-                  <td className="flex gap-2 p-3">
+                  <td className="flex gap-2 p-3 ">
                     <button
                       onClick={() => handleEditVenta(venta)}
-                      className="px-4 py-1 text-white rounded bg-accent hover:bg-opacity-80"
+                      className="flex px-4 py-1 text-white rounded bg-accent hover:bg-opacity-80"
                     >
-                      ✏️ Editar
+                      <PencilIcon className="h-5 mr-1"></PencilIcon> Editar
                     </button>
                     <button
                       onClick={() => handleDeleteVenta(venta.id)}
-                      className="px-4 py-1 text-white bg-red-500 rounded hover:bg-red-600"
+                      className="flex px-4 py-1 text-white bg-red-500 rounded hover:bg-red-600"
                     >
-                      🗑️ Eliminar
+                      <TrashIcon className="h-5 mr-1"></TrashIcon> Eliminar
                     </button>
                   </td>
                 </tr>

@@ -20,6 +20,7 @@ import Informes from "./pages/Informes.jsx";
 import Auditorias from "./pages/Auditorias.jsx";
 import Animales from "./pages/Animales.jsx";
 import Ventas from "./pages/Ventas.jsx";
+import AnimalesDisponibles from "./pages/AnimalesDisponibles.jsx";
 
 const Layout = () => (
   <>
@@ -47,6 +48,10 @@ createRoot(document.getElementById("root")).render(
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route
+              path="/inventario"
+              element={<AnimalesDisponibles></AnimalesDisponibles>}
+            />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Analiticas />} />
               <Route path="informes" element={<Informes />} />

@@ -9,7 +9,6 @@ import {
 } from "../services/animalService";
 import {
   Button,
-  Card,
   CardBody,
   Input,
   Typography,
@@ -485,7 +484,7 @@ export default function Animales() {
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {animals.map((animal) => (
-            <Card
+            <div
               key={animal.id}
               className="border rounded-lg shadow-md bg-[var(--background)] transition-transform hover:scale-[1.02] overflow-visible"
             >
@@ -578,7 +577,7 @@ export default function Animales() {
                   </Button>
                 </div>
               </CardBody>
-            </Card>
+            </div>
           ))}
         </div>
       )}
