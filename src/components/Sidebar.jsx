@@ -6,7 +6,6 @@ import {
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip,
   Accordion,
   AccordionHeader,
   AccordionBody,
@@ -16,7 +15,6 @@ import {
 import {
   PresentationChartBarIcon,
   UserCircleIcon,
-  InboxIcon,
   PowerIcon,
   ChartPieIcon,
   DocumentChartBarIcon,
@@ -59,39 +57,39 @@ export function SidebarWithBurgerMenu() {
     <>
       <IconButton variant="text" size="md" onClick={openDrawer}>
         {isDrawerOpen ? (
-          <XMarkIcon className="w-8 h-8 transition-colors delay-300 stroke-2 text-text" />
+          <XMarkIcon className="w-8 h-8 stroke-2 text-text" />
         ) : (
-          <Bars3Icon className="w-8 h-8 transition-colors delay-300 stroke-2 text-text" />
+          <Bars3Icon className="w-8 h-8 stroke-2 text-text" />
         )}
       </IconButton>
       <Drawer
         open={isDrawerOpen}
         onClose={closeDrawer}
-        className="transition-colors delay-300 bg-background"
+        className=" bg-background"
       >
         <Card
           color="transparent"
           shadow={false}
-          className="h-[calc(100vh-2rem)] w-full p-4  "
+          className="h-[calc(100vh-2rem)] w-full p-4"
         >
           <div className="flex items-center gap-4 p-4 mb-2 ">
-            <FaCow className="w-8 h-8 transition-colors delay-300 text-text" />
+            <FaCow className="w-8 h-8 text-text" />
             <Typography
               variant="h5"
-              className="transition-colors delay-300 text-text"
+              className=" text-text"
               onClick={() => handleNavigate("")}
             >
               Inventario Bovino
             </Typography>
           </div>
 
-          <List className="delay-300 text-text transition-color">
+          <List className=" text-text">
             <Accordion
               open={open === 1}
               icon={
                 <ChevronDownIcon
                   strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4  text-text   transition-transform ${
+                  className={`mx-auto h-4 w-4  text-text     ${
                     open === 1 ? "rotate-180" : ""
                   }`}
                 />
@@ -100,7 +98,7 @@ export function SidebarWithBurgerMenu() {
               <ListItem className="p-0 " selected={open === 1}>
                 <AccordionHeader
                   onClick={() => handleOpen(1)}
-                  className="p-3 transition-colors delay-300 border-b-0 text-text"
+                  className="p-3 border-b-0 text-text"
                 >
                   <ListItemPrefix>
                     <PresentationChartBarIcon className="w-5 h-5 " />
@@ -110,8 +108,8 @@ export function SidebarWithBurgerMenu() {
                   </Typography>
                 </AccordionHeader>
               </ListItem>
-              <AccordionBody className="py-1 transition-colors delay-300 ">
-                <List className="p-0 delay-300 text-text transition-color">
+              <AccordionBody className="py-1 ">
+                <List className="p-0 text-text ">
                   <ListItem onClick={() => handleNavigate("dashboard")}>
                     <ListItemPrefix>
                       <ChartPieIcon strokeWidth={3} className="w-5 h-3 " />
@@ -148,7 +146,7 @@ export function SidebarWithBurgerMenu() {
               icon={
                 <ChevronDownIcon
                   strokeWidth={2.5}
-                  className={`mx-auto h-4 w-4 text-text transition-transform ${
+                  className={`mx-auto h-4 w-4 text-text   ${
                     open === 2 ? "rotate-180" : ""
                   }`}
                 />
@@ -157,7 +155,7 @@ export function SidebarWithBurgerMenu() {
               <ListItem className="p-0 " selected={open === 2}>
                 <AccordionHeader
                   onClick={() => handleOpen(2)}
-                  className="p-3 transition-colors delay-300 border-b-0 text-text"
+                  className="p-3 border-b-0 text-text"
                 >
                   <ListItemPrefix>
                     <Square3Stack3DIcon className="w-5 h-5" />
@@ -168,7 +166,7 @@ export function SidebarWithBurgerMenu() {
                 </AccordionHeader>
               </ListItem>
               <AccordionBody className="py-1 ">
-                <List className="p-0 transition-colors delay-150 text-text">
+                <List className="p-0 text-text">
                   <ListItem
                     onClick={() => handleNavigate("dashboard/productos")}
                   >
@@ -213,7 +211,7 @@ export function SidebarWithBurgerMenu() {
                 </List>
               </AccordionBody>
             </Accordion>
-            <hr className="my-2 transition-colors delay-300 border-text" />
+            <hr className="my-2 border-text" />
             <ListItem>
               <ListItemPrefix>
                 <ArrowPathIcon className="w-5 h-5" />
@@ -223,20 +221,7 @@ export function SidebarWithBurgerMenu() {
                 <ThemeSwitch />
               </ListItemSuffix>
             </ListItem>
-            <ListItem>
-              <ListItemPrefix>
-                <InboxIcon className="w-5 h-5" />
-              </ListItemPrefix>
-              Inbox
-              <ListItemSuffix>
-                <Chip
-                  value="14"
-                  size="sm"
-                  variant="ghost"
-                  className="transition-colors delay-300 rounded-full text-text"
-                />
-              </ListItemSuffix>
-            </ListItem>
+
             <ListItem onClick={() => handleNavigate("dashboard/profile")}>
               <ListItemPrefix>
                 <UserCircleIcon className="w-5 h-5" />

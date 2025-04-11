@@ -1,5 +1,5 @@
-import web3 from "../utils/web3";
-import animalContract from "../utils/contracts/animalContract";
+import web3 from "../utils/web3.js";
+import animalContract from "../utils/contracts/animalContract.js";
 
 // 📌 Función para registrar un animal
 export const registrarAnimal = async (

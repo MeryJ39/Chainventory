@@ -1,13 +1,7 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
-import {
-  Card,
-  Input,
-  Button,
-  Typography,
-  Checkbox,
-} from "@material-tailwind/react";
+import { Input, Button, Typography, Checkbox } from "@material-tailwind/react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 const Login = () => {
@@ -107,20 +101,6 @@ const Login = () => {
                 {loading ? "Autenticando..." : "Iniciar sesión"}
               </Button>
             </form>
-
-            <Typography
-              variant="small"
-              className="mt-4 text-center text-accent"
-            >
-              ¿No tienes una cuenta?{" "}
-              <button
-                type="button"
-                onClick={() => navigate("/register")}
-                className="font-bold text-text hover:underline hover:text-secondary"
-              >
-                Regístrate
-              </button>
-            </Typography>
           </div>
         </div>
       </div>

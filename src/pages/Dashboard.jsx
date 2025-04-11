@@ -13,7 +13,6 @@ import {
   ChevronDownIcon,
   PowerIcon,
   UserCircleIcon,
-  InboxArrowDownIcon,
 } from "@heroicons/react/24/solid";
 import Avvvatars from "avvvatars-react";
 import ThemeToggle from "../components/ThemeToggle";
@@ -21,7 +20,6 @@ import Sidebar from "../components/Sidebar";
 
 const profileMenuItems = [
   { label: "Mi perfil", icon: UserCircleIcon, link: "dashboard/profile" },
-  { label: "Inbox", icon: InboxArrowDownIcon, link: "dashboard/inbox" },
 ];
 
 const Dashboard = () => {
@@ -35,17 +33,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen transition-colors delay-300 bg-background">
+    <div className="flex flex-col h-screen bg-background">
       {/* Navbar */}
-      <div className="flex items-center justify-between px-4 py-2 transition-colors delay-300 shadow-lg bg-background">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-accent bg-background">
         <Sidebar />
 
         <div className="flex items-center gap-4">
           {/* 🔥 Mostrar nombre del usuario autenticado */}
-          <Typography
-            variant="small"
-            className="font-medium transition-colors delay-300 text-text"
-          >
+          <Typography variant="small" className="font-medium text-text">
             {user ? user.username : "Invitado"}
           </Typography>
 
@@ -69,9 +64,7 @@ const Dashboard = () => {
                   shadow
                 />
                 <ChevronDownIcon
-                  className={`h-3 w-3 transition-transform ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
+                  className={`h-3 w-3   ${isMenuOpen ? "rotate-180" : ""}`}
                 />
               </Button>
             </MenuHandler>
@@ -112,7 +105,7 @@ const Dashboard = () => {
       </div>
 
       {/* Contenido Principal */}
-      <div className="flex-1 bg-background overflow-auto max-h-[calc(100vh-64px)]">
+      <div className="flex-1 max-h-screen overflow-auto bg-background">
         <Outlet />
       </div>
     </div>

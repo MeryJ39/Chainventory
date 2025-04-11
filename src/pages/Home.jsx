@@ -1,14 +1,10 @@
-import React from "react";
-import { Button, Typography, Card, Chip } from "@material-tailwind/react";
+import { Button, Typography, Chip } from "@material-tailwind/react";
 import {
   BriefcaseIcon,
-  TruckIcon,
   UserGroupIcon,
   HeartIcon,
-  PhoneIcon,
 } from "@heroicons/react/24/solid"; // Importa los iconos
 import mainBanner from "../assets/banner1.jpg"; // Importa la imagen local (ajusta la ruta)
-import ThemeToggle from "../components/ThemeToggle";
 
 const Home = () => {
   console.log("mainBanner URL:", mainBanner); // Comprueba la URL en la consola
@@ -31,7 +27,7 @@ const Home = () => {
               Genética selecta, manejo experto y tradición ganadera a su
               servicio.
             </Typography>
-            <Button className="mb-4 transition-colors delay-500 bg-background text-text">
+            <Button className="mb-4 bg-background text-text">
               Contáctenos para conocer nuestro catálogo
             </Button>
           </div>
@@ -77,7 +73,7 @@ const Home = () => {
           </Typography>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="text-center">
-              <BriefcaseIcon className="w-12 h-12 mx-auto mb-4 transition-colors duration-300 text-primary" />
+              <BriefcaseIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
               <Typography
                 variant="h6"
                 className="mb-2 font-bold text-background"
@@ -89,7 +85,7 @@ const Home = () => {
               </Typography>
             </div>
             <div className="text-center">
-              <HeartIcon className="w-12 h-12 mx-auto mb-4 transition-colors duration-300 text-primary" />
+              <HeartIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
               <Typography
                 variant="h6"
                 className="mb-2 font-bold text-background"
@@ -103,7 +99,7 @@ const Home = () => {
               </Typography>
             </div>
             <div className="text-center">
-              <UserGroupIcon className="w-12 h-12 mx-auto mb-4 transition-colors duration-300 text-primary" />
+              <UserGroupIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
               <Typography
                 variant="h6"
                 className="mb-2 font-bold text-background"
@@ -119,7 +115,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="w-full p-10 transition-colors duration-300 bg-background">
+      <section className="w-full p-10 bg-background">
         {" "}
         {/* Intercambiado bg-gray-800 y dark:bg-transparent */}
         <Typography
@@ -129,7 +125,7 @@ const Home = () => {
           Adquiera sus bovinos en 4 sencillos pasos
         </Typography>
         <div className="grid grid-cols-1 gap-8 text-text md:grid-cols-2 lg:grid-cols-4">
-          <div className="text-center transition-colors duration-300 text-text">
+          <div className="text-center text-text">
             {" "}
             {/* Intercambiado text-white y dark:text-gray-900 */}
             <Chip
@@ -141,14 +137,14 @@ const Home = () => {
             <Typography variant="h6" className="mb-2 font-bold">
               Contacto
             </Typography>
-            <Typography className="transition-colors duration-300 ">
+            <Typography className="">
               {" "}
               {/* Intercambiado text-gray-300 y dark:text-gray-700 */}
               Comuníquese con nosotros para conocer nuestro catálogo.
             </Typography>
           </div>
 
-          <div className="text-center transition-colors duration-300 ">
+          <div className="text-center ">
             <Chip
               variant="filled"
               color="blue"
@@ -158,12 +154,12 @@ const Home = () => {
             <Typography variant="h6" className="mb-2 font-bold">
               Selección
             </Typography>
-            <Typography className="transition-colors duration-300 ">
+            <Typography className="">
               Escoja los bovinos que mejor se adapten a sus necesidades.
             </Typography>
           </div>
 
-          <div className="text-center transition-colors duration-300 ">
+          <div className="text-center ">
             <Chip
               variant="filled"
               color="blue"
@@ -173,12 +169,12 @@ const Home = () => {
             <Typography variant="h6" className="mb-2 font-bold">
               Cotización
             </Typography>
-            <Typography className="transition-colors duration-300 ">
+            <Typography className="">
               Reciba una cotización detallada de los animales seleccionados.
             </Typography>
           </div>
 
-          <div className="text-center transition-colors duration-300 ">
+          <div className="text-center ">
             <Chip
               variant="filled"
               color="blue"
@@ -188,7 +184,7 @@ const Home = () => {
             <Typography variant="h6" className="mb-2 font-bold">
               Entrega
             </Typography>
-            <Typography className="transition-colors duration-300 ">
+            <Typography className="">
               Coordinamos la entrega de los bovinos a su destino.
             </Typography>
           </div>

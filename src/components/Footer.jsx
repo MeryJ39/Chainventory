@@ -12,7 +12,7 @@ const Footer = () => {
               <Typography
                 as="a"
                 href="#"
-                className="font-normal transition-colors text-text hover:text-primary focus:text-primary"
+                className="font-normal text-text hover:text-primary focus:text-primary"
               >
                 {item}
               </Typography>
@@ -22,7 +22,7 @@ const Footer = () => {
       </div>
       <hr className="my-8 border-text opacity-30" />
       <Typography className="font-normal text-center text-text">
-        &copy; 2025 MER - Todos los derechos reservados.
+        &copy; 2025 Inventario Web - Todos los derechos reservados.
       </Typography>
     </footer>
   );

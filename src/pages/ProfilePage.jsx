@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 import {
   Card,
@@ -8,98 +8,99 @@ import {
   Typography,
   Tooltip,
   Button,
-} from "@material-tailwind/react"; // Importar los componentes necesarios
+  IconButton,
+  Input,
+} from "@material-tailwind/react";
 import Avvvatars from "avvvatars-react";
-import Inventario from "../components/Inventario";
 
 function ProfilePage() {
-  const { user, logout } = useContext(AuthContext); // Obtener el usuario del contexto
+  const { user, logout } = useContext(AuthContext);
+  const [editMode, setEditMode] = useState(false);
+  const [updatedUsername, setUpdatedUsername] = useState(user?.username || "");
 
   useEffect(() => {
     if (!user) {
-      // Si no hay usuario, redirige al login
-      window.location.href = "/"; // o usa react-router para redirigir
+      window.location.href = "/";
     }
   }, [user]);
 
+  const handleEditToggle = () => {
+    setEditMode(!editMode);
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen ">
-      <Card className="w-96">
+    <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-[var(--background)] text-[var(--text)]">
+      <Card className="w-full max-w-lg shadow-lg bg-[var(--background)] text-[var(--text)]">
+        {/* Avatar */}
         <CardHeader
           floated={false}
-          className="h-80 flex justify-center items-center"
+          className="flex justify-center p-6 bg-[var(--primary)]"
         >
           <Avvvatars
-            value={user ? user.email : "user@gmail.com"}
-            className="w-full h-full object-cover"
-            size={300}
+            value={user?.username || "Usuario"}
+            size={120}
             style="character"
-          ></Avvvatars>
+          />
         </CardHeader>
 
         <CardBody className="text-center">
-          {/* Nombre de usuario */}
-          <Typography variant="h4" color="blue-gray" className="mb-2">
-            {user ? user.username : "Cargando..."}
-          </Typography>
+          {editMode ? (
+            <Input
+              label="Nombre de usuario"
+              value={updatedUsername}
+              onChange={(e) => setUpdatedUsername(e.target.value)}
+              className="bg-[var(--background)] text-[var(--text)]"
+            />
+          ) : (
+            <Typography variant="h4" className="mb-2 text-[var(--text)]">
+              {user?.username || "Usuario"}
+            </Typography>
+          )}
 
-          {/* Correo del usuario */}
-          <Typography color="blue-gray" className="font-medium">
-            {user ? user.email : "Cargando..."}
-          </Typography>
-
-          {/* Mostrar un mensaje de bienvenida */}
-          <Typography variant="small" color="blue-gray" className="mt-4">
-            ¡Bienvenido a tu perfil!
+          <Typography variant="small" className="mt-4 text-[var(--text)]">
+            ¡Bienvenido al sistema de inventario bovino!
           </Typography>
         </CardBody>
 
-        <CardFooter className="flex justify-center gap-7 pt-2">
-          {/* Aquí pueden ir los botones de redes sociales */}
-          <Tooltip content="Like">
-            <Typography
-              as="a"
-              href="#facebook"
-              variant="lead"
-              color="blue"
-              textGradient
+        <CardFooter className="flex flex-col items-center gap-3">
+          <div className="flex gap-3">
+            <Tooltip content="Editar perfil">
+              <IconButton onClick={handleEditToggle}>
+                <i className="fas fa-edit text-[var(--secondary)]" />
+              </IconButton>
+            </Tooltip>
+            <Tooltip content="Cerrar sesión">
+              <IconButton onClick={logout}>
+                <i className="text-red-500 fas fa-sign-out-alt" />
+              </IconButton>
+            </Tooltip>
+          </div>
+
+          {editMode && (
+            <Button
+              variant="filled"
+              className="w-full bg-[var(--secondary)] text-white"
+              onClick={() => setEditMode(false)}
             >
-              <i className="fab fa-facebook" />
-            </Typography>
-          </Tooltip>
-          <Tooltip content="Follow">
-            <Typography
-              as="a"
-              href="#twitter"
-              variant="lead"
-              color="light-blue"
-              textGradient
-            >
-              <i className="fab fa-twitter" />
-            </Typography>
-          </Tooltip>
-          <Tooltip content="Follow">
-            <Typography
-              as="a"
-              href="#instagram"
-              variant="lead"
-              color="purple"
-              textGradient
-            >
-              <i className="fab fa-instagram" />
-            </Typography>
-          </Tooltip>
+              Guardar cambios
+            </Button>
+          )}
         </CardFooter>
       </Card>
 
-      {/* Botón de cerrar sesión */}
-      <div className="mt-4 text-center">
-        <Button variant="outlined" onClick={logout} className="px-6 py-2">
-          Cerrar sesión
-        </Button>
-      </div>
-
-      <Inventario></Inventario>
+      {/* Sección de Actividad Reciente */}
+      <Card className="w-full max-w-lg mt-5 shadow-lg bg-[var(--background)] text-[var(--text)]">
+        <CardBody>
+          <Typography variant="h6" className="mb-3 text-[var(--text)]">
+            Actividad Reciente
+          </Typography>
+          <ul className="text-sm text-[var(--text)]">
+            <li>✔️ Registraste 3 nuevas vacas en el sistema</li>
+            <li>✔️ Actualizaste la información de la vaca #1234</li>
+            <li>✔️ Se generó un informe de producción</li>
+          </ul>
+        </CardBody>
+      </Card>
     </div>
   );
 }

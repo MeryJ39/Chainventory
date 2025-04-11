@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Navbar,
   Typography,
-  Button,
   IconButton,
   Collapse,
 } from "@material-tailwind/react";
@@ -28,7 +27,7 @@ const NavbarComponent = () => {
           key={route}
           as="li"
           variant="small"
-          className="p-1 font-normal transition-colors delay-300 text-text"
+          className="p-1 font-normal text-text"
         >
           <Link
             to={`/${route}`}
@@ -43,12 +42,12 @@ const NavbarComponent = () => {
   );
 
   return (
-    <Navbar className="sticky top-0 z-10 max-w-full px-4 py-2 transition-colors delay-300 border-0 rounded-none dark:bg-background h-max lg:px-8 lg:py-4">
+    <Navbar className="sticky top-0 z-10 max-w-full px-4 py-2 border-0 rounded-none dark:bg-background h-max lg:px-8 lg:py-4">
       <div className="flex items-center justify-between ">
         <Typography
           as={Link}
           to="/"
-          className="mr-4 cursor-pointer py-1.5 font-medium text-text transition-colors delay-300"
+          className="mr-4 cursor-pointer py-1.5 font-medium text-text     "
         >
           Inventario Bovino
         </Typography>
@@ -56,23 +55,19 @@ const NavbarComponent = () => {
         <div className="flex items-center gap-4">
           <div className="hidden mr-4 lg:block">{navList}</div>
           <div className="flex items-center gap-x-1">
-            <Button variant="text" size="sm" className="hidden lg:inline-block">
-              <Link
-                to="/login"
-                className="transition-colors delay-300 text-text hover:text-primary"
-              >
-                Log In
-              </Link>
-            </Button>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block"
+            <Link
+              to="/login"
+              className="hidden px-4 py-2 transition-colors duration-300 rounded-md lg:inline-block text-text hover:text-primary" // Añadí px-4 py-2 rounded-md y transition-colors
             >
-              <Link to="/register" className="text-white">
-                Sign In
-              </Link>
-            </Button>
+              Log In
+            </Link>
+
+            <Link
+              to="/register"
+              className="hidden px-4 py-2 transition-colors duration-300 rounded-md text-text lg:inline-block bg-gradient-to-r from-secondary to-primary" // Añadí bg-gradient-to-r y px-4 py-2 rounded-md y transition-colors
+            >
+              Sign In
+            </Link>
           </div>
 
           {/* Botón de menú hamburguesa */}
@@ -120,16 +115,19 @@ const NavbarComponent = () => {
       <Collapse open={open}>
         <div className="flex flex-col items-start gap-4">{navList}</div>
         <div className="flex flex-col items-center gap-2 mt-4">
-          <Button fullWidth variant="text" size="sm">
-            <Link to="/login" className="text-text hover:text-primary">
-              Log In
-            </Link>
-          </Button>
-          <Button fullWidth variant="gradient" size="sm">
-            <Link to="/register" className="text-white">
-              Sign Ino
-            </Link>
-          </Button>
+          <Link
+            to="/login"
+            className="w-full px-4 py-2 text-center transition-colors duration-300 rounded-md text-text hover:text-primary"
+          >
+            Log In
+          </Link>
+
+          <Link
+            to="/register"
+            className="w-full px-4 py-2 text-center transition-colors duration-300 rounded-md text-text bg-gradient-to-r from-secondary to-accent"
+          >
+            Sign In
+          </Link>
         </div>
       </Collapse>
     </Navbar>

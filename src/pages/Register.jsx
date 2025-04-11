@@ -70,10 +70,7 @@ const Register = () => {
               label={
                 <Typography variant="small" className="text-sm text-accent">
                   Acepto los{" "}
-                  <a
-                    href="#"
-                    className="font-medium transition-colors hover:text-secondary"
-                  >
+                  <a href="#" className="font-medium   hover:text-secondary">
                     Términos y Condiciones
                   </a>
                 </Typography>

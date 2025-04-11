@@ -264,10 +264,7 @@ const Auditoria = () => {
         <div className="overflow-x-auto">
           <ul className="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 rounded-md shadow-sm">
             {eventos.map((evento, index) => (
-              <li
-                key={index}
-                className="px-4 py-3 transition-colors hover:bg-gray-50"
-              >
+              <li key={index} className="px-4 py-3   hover:bg-gray-50">
                 <div className="flex items-center">
                   <span className="mr-2">{evento.tipo}</span>
                   <p className="text-sm text-gray-600">{evento.detalle}</p>

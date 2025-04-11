@@ -12,7 +12,7 @@ const ThemeToggle = () => {
     <Button
       onClick={themeContext.toggleTheme}
       variant="text"
-      className="w-8 h-8 p-2 transition-colors delay-300 rounded-lg text-text bg-backgroud"
+      className="w-8 h-8 p-2      rounded-lg text-text bg-backgroud"
     >
       {themeContext.theme === "dark" ? (
         <SunIcon></SunIcon>

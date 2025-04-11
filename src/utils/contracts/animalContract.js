@@ -1,8 +1,10 @@
-import web3 from "../web3";
-import AnimalContractABI from "../../../truffle/contracts/AnimalContract.json";
+import web3 from "../web3.js";
+import AnimalContractABI from "../../../truffle/contracts/AnimalContract.json" assert { type: "json" };
 
 const networkId = Object.keys(AnimalContractABI.networks)[0];
+console.log("networkId", networkId);
 const contractAddress = AnimalContractABI.networks[networkId]?.address;
+console.log("contractAddress", contractAddress);
 
 if (!contractAddress) {
   console.error("⚠️ No se encontró la dirección del contrato.");
