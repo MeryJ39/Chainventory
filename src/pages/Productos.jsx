@@ -18,12 +18,23 @@ import {
   registrarProducto,
   actualizarProductoInfo,
   eliminarProducto,
-} from "../services/productoService"; // 🔥 Servicio de productos
-import { listarAnimales } from "../services/animalService"; // 🔥 Servicio de animales
+} from "../services/productoService";
+import { listarAnimales } from "../services/animalService";
+
+// eslint-disable-next-line react/prop-types
+const Field = ({ label, name, value, onChange }) => (
+  <Input
+    label={label}
+    name={name}
+    value={value}
+    onChange={onChange}
+    className="w-full border-text text-text"
+  />
+);
 
 const Productos = () => {
   const [productos, setProductos] = useState([]);
-  const [animales, setAnimales] = useState([]); // 🔥 Lista de animales
+  const [animales, setAnimales] = useState([]);
   const [loading, setLoading] = useState(true);
   const [nuevoProducto, setNuevoProducto] = useState({
     tipo: "",
@@ -38,21 +49,22 @@ const Productos = () => {
     destino: "",
     saldo: "",
     observaciones: "",
-    idAnimal: "", // 🔥 Selección de animal
+    idAnimal: "",
   });
-
   const [editProducto, setEditProducto] = useState(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
-  // 📌 Cargar productos y animales desde la blockchain
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const listaProductos = await listarProductos();
-        const listaAnimales = await listarAnimales();
+        const [listaProductos, listaAnimales] = await Promise.all([
+          listarProductos(),
+          listarAnimales(),
+        ]);
         setProductos(listaProductos);
-        console.log("Lista de productos:", listaProductos);
         setAnimales(listaAnimales);
       } catch (error) {
         console.error("❌ Error al obtener datos:", error);
@@ -62,33 +74,12 @@ const Productos = () => {
     fetchData();
   }, []);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Cambia esto si quieres más filas por página
-
-  // Calcular los productos de la página actual
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentProducts = productos.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Función para cambiar de página
-  const totalPages = Math.ceil(productos.length / itemsPerPage);
-  const changePage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
-
-  // 📌 Manejar cambios en los inputs
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setNuevoProducto({ ...nuevoProducto, [e.target.name]: e.target.value });
-  };
 
-  // 📌 Manejar selección de un animal
-  const handleAnimalSelect = (idAnimal) => {
+  const handleAnimalSelect = (idAnimal) =>
     setNuevoProducto({ ...nuevoProducto, idAnimal });
-  };
 
-  // 📌 Crear un nuevo producto
   const handleCreate = async () => {
     try {
       await registrarProducto(
@@ -106,7 +97,6 @@ const Productos = () => {
         nuevoProducto.observaciones,
         Number(nuevoProducto.idAnimal)
       );
-
       alert("✅ Producto registrado con éxito");
       setProductos(await listarProductos());
       setNuevoProducto({
@@ -130,54 +120,119 @@ const Productos = () => {
     }
   };
 
+  const currentProducts = productos.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+  const totalPages = Math.ceil(productos.length / itemsPerPage);
+
   return (
-    <div className="p-5 bg-background">
+    <div className="p-5 bg-background text-text">
       <Typography variant="h4" className="mb-4">
         Gestión de Productos
       </Typography>
 
-      {/* 📌 Formulario para agregar producto */}
-      <Card className="p-4 mb-5 shadow-md bg-background text-text sm:p-6">
+      {/* ➕ FORMULARIO */}
+      <Card className="p-4 mb-5 shadow-md bg-background">
         <CardBody>
-          <Typography variant="h5" className="mb-4 text-center sm:text-left">
+          <Typography variant="h5" className="mb-4">
             Añadir Producto
           </Typography>
-
-          {/* 🔥 Grid responsive */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {Object.keys(nuevoProducto).map((key) =>
-              key === "idAnimal" ? (
+            {Object.entries(nuevoProducto).map(([key, val]) =>
+              //si la key es raza hacer un select
+              key === "raza" ? (
+                <Select
+                  key={key}
+                  label="Seleccionar Raza"
+                  value={val}
+                  onChange={(e) =>
+                    setNuevoProducto({ ...nuevoProducto, raza: e })
+                  }
+                >
+                  <Option value="Angus">Angus</Option>
+                  <Option value="Hereford">Hereford</Option>
+                  <Option value="Brangus">Brangus</Option>
+                  <Option value="Nelore">Nelore</Option>
+                  <Option value="Simmental">Simmental</Option>
+                  <Option value="Limousin">Limousin</Option>
+                  <Option value="Charolais">Charolais</Option>
+                  <Option value="Holstein">Holstein</Option>
+                  <Option value="Jersey">Jersey</Option>
+                  <Option value="Pardo Suizo">Pardo Suizo</Option>
+                  <Option value="Gyr">Gyr</Option>
+                  <Option value="Otro">Otro</Option>
+                </Select>
+              ) : key === "especie" ? (
+                <Select
+                  key={key}
+                  label="Seleccionar Especie"
+                  value={val}
+                  onChange={(e) =>
+                    setNuevoProducto({ ...nuevoProducto, especie: e })
+                  }
+                >
+                  <Option value="Bos_indicus">Bos indicus</Option>
+                  <Option value="Bubalus_taurus">Bubalus taurus</Option>
+                  <Option value="Hibrido">Hibrido</Option>
+                </Select>
+              ) : key === "tipo" ? (
+                <Select
+                  key={key}
+                  label="Seleccionar Tipo"
+                  value={val}
+                  onChange={(e) =>
+                    setNuevoProducto({ ...nuevoProducto, tipo: e })
+                  }
+                >
+                  <Option value="Entrada">Ganado de Carne</Option>
+                  <Option value="Salida">Ganado de Leche</Option>
+                  <Option value="Salida">Ganado de Reproductores</Option>
+                  <Option value="Salida">Otros</Option>
+                </Select>
+              ) : key === "movimiento" ? (
+                <Select
+                  key={key}
+                  label="Seleccionar Movimiento"
+                  value={val}
+                  onChange={(e) =>
+                    setNuevoProducto({ ...nuevoProducto, movimiento: e })
+                  }
+                >
+                  <Option value="Entrada">Entrada</Option>
+                  <Option value="Traslado">Traslado</Option>
+                  <Option value="Salida">Salida</Option>
+                  <Option value="Venta">Venta</Option>
+                  <Option value="Compra">Compra</Option>
+                  <Option value="Otros">Otros</Option>
+                </Select>
+              ) : key === "idAnimal" ? (
                 <Select
                   key={key}
                   label="Seleccionar Animal"
-                  value={String(nuevoProducto.idAnimal)}
-                  onChange={(idAnimal) => handleAnimalSelect(idAnimal)}
-                  className="w-full text-text"
+                  value={val}
+                  onChange={handleAnimalSelect}
                 >
-                  {animales.map((animal) => (
-                    <Option key={animal.id} value={String(animal.id)}>
-                      {animal.nombre} (ID: {animal.id})
+                  {animales.map((a) => (
+                    <Option key={a.id} value={String(a.id)}>
+                      {a.nombre} (ID: {a.id})
                     </Option>
                   ))}
                 </Select>
               ) : (
-                <Input
+                <Field
                   key={key}
-                  type="text"
                   label={key.replace("_", " ").toUpperCase()}
                   name={key}
-                  value={nuevoProducto[key]}
+                  value={val}
                   onChange={handleChange}
-                  className="w-full border-text text-text"
                 />
               )
             )}
           </div>
-
-          {/* 🔥 Botón centrado en pantallas pequeñas */}
           <div className="flex justify-center sm:justify-start">
             <Button
-              className="w-full mt-4 bg-secondary sm:w-auto"
+              className="w-full mt-4 sm:w-auto bg-secondary"
               onClick={handleCreate}
             >
               Agregar Producto
@@ -186,13 +241,12 @@ const Productos = () => {
         </CardBody>
       </Card>
 
-      {/* 📌 Lista de productos */}
-      <Card className="p-4 shadow-md bg-background text-text">
+      {/* 📋 LISTA DE PRODUCTOS */}
+      <Card className="p-4 shadow-md bg-background">
         <CardBody>
-          <Typography variant="h5" className="mb-4 text-center sm:text-left">
+          <Typography variant="h5" className="mb-4">
             Lista de Productos
           </Typography>
-
           {loading ? (
             <Typography className="text-center text-gray-500">
               Cargando productos...
@@ -202,145 +256,112 @@ const Productos = () => {
               No hay productos disponibles
             </Typography>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full border border-collapse border-gray-300 dark:border-gray-700">
-                <thead className="bg-gray-200 dark:bg-gray-700">
-                  <tr>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      ID
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Descripción
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Tipo
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Destino
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Cantidad
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Saldo
-                    </th>
-                    <th className="p-2 border border-gray-300 dark:border-gray-600">
-                      Acciones
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentProducts.map((producto) => (
-                    <tr
-                      key={producto.id}
-                      className="hover:bg-gray-100 dark:hover:bg-gray-800"
-                    >
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.id}
-                      </td>
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.descripcion}
-                      </td>
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.tipo}
-                      </td>
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.destino}
-                      </td>
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.cantidad}
-                      </td>
-                      <td className="p-2 border border-gray-300 dark:border-gray-600">
-                        {producto.saldo} Bs
-                      </td>
-                      <td className="flex justify-center gap-2 p-2 border border-gray-300 dark:border-gray-600">
-                        <button
-                          className="p-1 text-white transition bg-blue-500 rounded-md hover:bg-blue-600"
-                          onClick={() => {
-                            setEditProducto(producto);
-                            setIsEditDialogOpen(true); // Abrir el modal
-                          }}
-                        >
-                          <PencilIcon className="w-5 h-5" />
-                        </button>
-                        <button
-                          className="p-1 text-white transition bg-red-500 rounded-md hover:bg-red-600"
-                          onClick={() => eliminarProducto(producto.id)}
-                        >
-                          <TrashIcon className="w-5 h-5" />
-                        </button>
-                      </td>
+            <>
+              <div className="overflow-x-auto">
+                <table className="w-full border border-gray-300">
+                  <thead className="bg-gray-200">
+                    <tr>
+                      {[
+                        "ID",
+                        "Descripción",
+                        "Tipo",
+                        "Destino",
+                        "Cantidad",
+                        "Saldo",
+                        "Acciones",
+                      ].map((h) => (
+                        <th key={h} className="p-2 border">
+                          {h}
+                        </th>
+                      ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {currentProducts.map((prod) => (
+                      <tr key={prod.id} className="hover:bg-gray-100">
+                        <td className="p-2 border">{prod.id}</td>
+                        <td className="p-2 border">{prod.descripcion}</td>
+                        <td className="p-2 border">{prod.tipo}</td>
+                        <td className="p-2 border">{prod.destino}</td>
+                        <td className="p-2 border">{prod.cantidad}</td>
+                        <td className="p-2 border">{prod.saldo} Bs</td>
+                        <td className="flex justify-center gap-2 p-2 border">
+                          <button
+                            className="p-1 text-white bg-blue-500 rounded hover:bg-blue-600"
+                            onClick={() => {
+                              setEditProducto(prod);
+                              setIsEditDialogOpen(true);
+                            }}
+                          >
+                            <PencilIcon className="w-5 h-5" />
+                          </button>
+                          <button
+                            className="p-1 text-white bg-red-500 rounded hover:bg-red-600"
+                            onClick={() => eliminarProducto(prod.id)}
+                          >
+                            <TrashIcon className="w-5 h-5" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
-              {/* Paginación */}
-              <div className="flex items-center justify-center gap-2 mt-4">
-                <button
-                  className="px-3 py-1 text-gray-700 transition bg-gray-300 rounded dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-400 disabled:opacity-50"
+              {/* PAGINACIÓN */}
+              <div className="flex justify-center gap-2 mt-4">
+                <Button
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage === 1}
-                  onClick={() => changePage(currentPage - 1)}
                 >
                   ◀ Anterior
-                </button>
-                <span className="text-gray-700 dark:text-gray-300">
+                </Button>
+                <span>
                   {currentPage} de {totalPages}
                 </span>
-                <button
-                  className="px-3 py-1 text-gray-700 transition bg-gray-300 rounded dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-400 disabled:opacity-50"
+                <Button
+                  onClick={() =>
+                    setCurrentPage((p) => Math.min(totalPages, p + 1))
+                  }
                   disabled={currentPage === totalPages}
-                  onClick={() => changePage(currentPage + 1)}
                 >
                   Siguiente ▶
-                </button>
+                </Button>
               </div>
-            </div>
+            </>
           )}
         </CardBody>
       </Card>
-      {/* 📌 Modal de edición */}
+
+      {/* ✏️ MODAL DE EDICIÓN */}
       <Dialog
         open={isEditDialogOpen}
         handler={() => setIsEditDialogOpen(false)}
-        className=" animate-fadeIn"
       >
-        {/* 🟢 Header del Dialog */}
-        <DialogHeader className="relative p-4 bg-gray-100 rounded-t-lg dark:bg-gray-700">
-          <Typography
-            variant="h5"
-            className="text-lg font-semibold text-gray-900 ps-2 dark:text-gray-100"
-          >
-            Editar Producto
-          </Typography>
+        <DialogHeader className="bg-gray-100 dark:bg-gray-700">
+          <Typography variant="h5">Editar Producto</Typography>
           <button
-            size="sm"
-            className="absolute text-gray-500 right-4 top-4 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
-            onClick={() =>
-              setIsEditDialogOpen(false) && console.log("Modal cerrado")
-            }
+            onClick={() => setIsEditDialogOpen(false)}
+            className="absolute right-4 top-4"
           >
             <XMarkIcon className="w-5 h-5" />
           </button>
         </DialogHeader>
-
-        {/* 🟢 Cuerpo del Dialog */}
-        <DialogBody className="px-6 pb-6 space-y-6 bg-white dark:bg-gray-800">
+        <DialogBody className="bg-white dark:bg-gray-800">
           {editProducto ? (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {Object.keys(editProducto).map((key) => (
-                <Input
+              {Object.entries(editProducto).map(([key, val]) => (
+                <Field
                   key={key}
-                  name={key}
                   label={key.replace("_", " ").toUpperCase()}
-                  value={editProducto[key]}
+                  name={key}
+                  value={val}
                   onChange={(e) =>
                     setEditProducto({
                       ...editProducto,
                       [e.target.name]: e.target.value,
                     })
                   }
-                  className="text-gray-900 border-gray-300 dark:border-gray-600 dark:text-gray-100"
                 />
               ))}
             </div>
@@ -350,14 +371,8 @@ const Productos = () => {
             </Typography>
           )}
         </DialogBody>
-
-        {/* 🟢 Footer del Dialog */}
-        <DialogFooter className="flex justify-end gap-3 p-4 bg-gray-100 rounded-b-lg dark:bg-gray-700">
-          <Button
-            variant="text"
-            className="text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
-            onClick={() => setIsEditDialogOpen(false)}
-          >
+        <DialogFooter className="flex justify-end gap-3 bg-gray-100 dark:bg-gray-700">
+          <Button variant="text" onClick={() => setIsEditDialogOpen(false)}>
             Cancelar
           </Button>
           <Button
@@ -371,7 +386,6 @@ const Productos = () => {
                 editProducto.raza
               )
             }
-            className="px-5 py-2 text-white transition rounded-lg bg-secondary hover:bg-secondary-dark"
           >
             Actualizar Producto
           </Button>

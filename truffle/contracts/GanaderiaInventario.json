@@ -112,7 +112,7 @@
   "sourceMap": "224:760:3:-:0;;;;;;;;;;;;;-1:-1:-1;;224:760:3;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;224:760:3;;;-1:-1:-1;224:760:3;;;;;;;;;;;804:48;224:760;;;804:48;224:760;;;863:48;224:760;;;863:48;224:760;;;922:51;224:760;;;922:51;224:760;;;;;;;;;;;-1:-1:-1;224:760:3;;;;;;-1:-1:-1;224:760:3;;;;;-1:-1:-1;224:760:3;;;;-1:-1:-1;;;;;224:760:3;;;;;;:::o",
   "deployedSourceMap": "224:760:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;348:36;224:760;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;224:760:3;;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./ProductoContract.sol\";\r\nimport \"./VentaContract.sol\";\r\nimport \"./AnimalContract.sol\";\r\nimport \"./VacunaContract.sol\";\r\nimport \"./UsuarioContract.sol\";\r\n\r\ncontract GanaderiaInventario {\r\n    ProductoContract public productoContract;\r\n    VentaContract public ventaContract;\r\n    AnimalContract public animalContract;\r\n    VacunaContract public vacunaContract;\r\n    UsuarioContract public usuarioContract;\r\n\r\n    constructor(\r\n        address _productoContract,\r\n        address _ventaContract,\r\n        address _animalContract,\r\n        address _vacunaContract,\r\n        address _usuarioContract\r\n    ) {\r\n        productoContract = ProductoContract(_productoContract);\r\n        ventaContract = VentaContract(_ventaContract);\r\n        animalContract = AnimalContract(_animalContract);\r\n        vacunaContract = VacunaContract(_vacunaContract);\r\n        usuarioContract = UsuarioContract(_usuarioContract);\r\n    }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\Raul\\Documents\\GitHub\\Chainventory\\Chainventory\\truffle\\contracts\\GanaderiaInventario.sol",
+  "sourcePath": "C:\\Users\\Raul\\Projects - Development (Code)\\Chainventory\\Chainventory\\truffle\\contracts\\GanaderiaInventario.sol",
   "ast": {
     "absolutePath": "project:/contracts/GanaderiaInventario.sol",
     "exportedSymbols": {
@@ -1005,12 +1005,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xF9f67866793839a1B6be597e0Bd6a37adB0f85c2",
-      "transactionHash": "0x8064c05daa4a083a7a2ac843b31a2eace6e7768e68dd58369b8f1b6e5ded7f77"
+      "address": "0x2c2172B3cB0F79ca513A0d137D6fCF28B95D25D7",
+      "transactionHash": "0x324c0db5b352d262ba67ac0654ecdcd6ff685b3c5e2511facdb0ef5e3df34dbe"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-03-02T18:57:47.520Z",
+  "updatedAt": "2025-05-23T12:40:17.315Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

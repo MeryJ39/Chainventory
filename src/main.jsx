@@ -21,6 +21,8 @@ import Auditorias from "./pages/Auditorias.jsx";
 import Animales from "./pages/Animales.jsx";
 import Ventas from "./pages/Ventas.jsx";
 import AnimalesDisponibles from "./pages/AnimalesDisponibles.jsx";
+import Preview from "./pages/preview.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 const Layout = () => (
   <>
@@ -43,15 +45,13 @@ createRoot(document.getElementById("root")).render(
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
+              <Route path="/preview" element={<Preview />} />
               {/* Renderiza Dashboard directamente */}
               {/* ... otras rutas anidadas */}
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route
-              path="/inventario"
-              element={<AnimalesDisponibles></AnimalesDisponibles>}
-            />
+            <Route path="/inventario" element={<AnimalesDisponibles />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Analiticas />} />
               <Route path="informes" element={<Informes />} />
@@ -63,7 +63,14 @@ createRoot(document.getElementById("root")).render(
               <Route path="movimientos" element={<Movimientos />} />
               {/* Otras rutas de Dashboard */}
               <Route path="vacunaciones" element={<Vacunaciones />} />
-              <Route path="usuarios" element={<Usuarios></Usuarios>} />
+              <Route
+                path="usuarios"
+                element={
+                  <ProtectedRoute allowedRoles={["administrador"]}>
+                    <Usuarios></Usuarios>
+                  </ProtectedRoute>
+                }
+              />
               <Route path="profile" element={<ProfilePage />} />
               <Route path="animales" element={<Animales></Animales>} />
               <Route path="ventas" element={<Ventas></Ventas>} />

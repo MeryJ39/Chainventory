@@ -21,6 +21,9 @@ import {
   Chip,
   Tooltip,
   IconButton,
+  List,
+  ListItem,
+  ListItemPrefix,
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,11 +33,43 @@ import {
   PencilIcon,
   TrashIcon,
   ArrowPathIcon,
+  CheckCircleIcon,
+  XCircleIcon,
 } from "@heroicons/react/24/solid";
 
 const ROLES = {
   administrador: "Administrador",
   encargado: "Encargado",
+};
+
+// Función para validar la contraseña y obtener los requisitos faltantes
+const validatePassword = (password) => {
+  const requirements = {
+    length: password.length >= 8,
+    hasUpperCase: /[A-Z]/.test(password),
+    hasLowerCase: /[a-z]/.test(password),
+    hasNumber: /\d/.test(password),
+    hasSymbol: /[!@#$%^&*(),.?":{}|<>]/.test(password),
+  };
+
+  const isValid = Object.values(requirements).every((val) => val);
+  const missingRequirements = Object.entries(requirements)
+    // eslint-disable-next-line no-unused-vars
+    .filter(([_, met]) => !met)
+    .map(([key]) => key);
+
+  return { isValid, requirements, missingRequirements };
+};
+
+const getRequirementText = (key) => {
+  const texts = {
+    length: "Mínimo 8 caracteres",
+    hasUpperCase: "Al menos una mayúscula (A-Z)",
+    hasLowerCase: "Al menos una minúscula (a-z)",
+    hasNumber: "Al menos un número (0-9)",
+    hasSymbol: "Al menos un símbolo (!@#$%^&*)",
+  };
+  return texts[key] || key;
 };
 
 const Usuarios = () => {
@@ -48,6 +83,17 @@ const Usuarios = () => {
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
+  const [passwordValidation, setPasswordValidation] = useState({
+    isValid: false,
+    requirements: {
+      length: false,
+      hasUpperCase: false,
+      hasLowerCase: false,
+      hasNumber: false,
+      hasSymbol: false,
+    },
+    missingRequirements: [],
+  });
 
   const [newUser, setNewUser] = useState({
     username: "",
@@ -74,10 +120,29 @@ const Usuarios = () => {
     fetchUsers();
   }, []);
 
+  // Manejar cambio de contraseña en el formulario
+  const handlePasswordChange = (password) => {
+    setNewUser({ ...newUser, password });
+    const validation = validatePassword(password);
+    setPasswordValidation(validation);
+  };
+
+  // Manejar cambio de nueva contraseña en el diálogo
+  const handleNewPasswordChange = (password) => {
+    setNewPassword(password);
+    const validation = validatePassword(password);
+    setPasswordValidation(validation);
+  };
+
   // Manejar creación de usuario
   const handleCreate = async () => {
     if (!newUser.username || !newUser.password) {
       toast.warn("Todos los campos son obligatorios");
+      return;
+    }
+
+    if (!passwordValidation.isValid) {
+      toast.warn("La contraseña no cumple con los requisitos de seguridad");
       return;
     }
 
@@ -89,6 +154,17 @@ const Usuarios = () => {
       const usuariosActualizados = await listarUsuarios();
       setUsers(usuariosActualizados);
       setNewUser({ username: "", password: "", rol: "usuario" });
+      setPasswordValidation({
+        isValid: false,
+        requirements: {
+          length: false,
+          hasUpperCase: false,
+          hasLowerCase: false,
+          hasNumber: false,
+          hasSymbol: false,
+        },
+        missingRequirements: [],
+      });
     } catch (error) {
       console.error("Error al registrar usuario:", error);
       toast.error("Error al registrar usuario");
@@ -123,6 +199,10 @@ const Usuarios = () => {
       toast.warn("Ingresa una nueva contraseña");
       return;
     }
+    if (!passwordValidation.isValid) {
+      toast.warn("La contraseña no cumple con los requisitos de seguridad");
+      return;
+    }
 
     setLoading(true);
     try {
@@ -131,6 +211,17 @@ const Usuarios = () => {
 
       setOpenChangePassDialog(false);
       setNewPassword("");
+      setPasswordValidation({
+        isValid: false,
+        requirements: {
+          length: false,
+          hasUpperCase: false,
+          hasLowerCase: false,
+          hasNumber: false,
+          hasSymbol: false,
+        },
+        missingRequirements: [],
+      });
     } catch (error) {
       console.error("Error al cambiar contraseña:", error);
       toast.error("Error al cambiar contraseña");
@@ -169,6 +260,39 @@ const Usuarios = () => {
       className="text-xs"
     />
   );
+
+  // Componente para mostrar los requisitos de la contraseña
+  // eslint-disable-next-line react/prop-types
+  const PasswordRequirements = ({ requirements }) => {
+    return (
+      <div className="mt-2">
+        <Typography variant="small" className="font-medium text-gray-700">
+          Requisitos de la contraseña:
+        </Typography>
+        <List className="p-0">
+          {Object.entries(requirements).map(([key, met]) => (
+            <ListItem key={key} className="p-0">
+              <ListItemPrefix className="w-5 h-5">
+                {met ? (
+                  <CheckCircleIcon className="w-5 h-5 text-green-500" />
+                ) : (
+                  <XCircleIcon className="w-5 h-5 text-red-500" />
+                )}
+              </ListItemPrefix>
+              <Typography
+                variant="small"
+                className={`font-normal ${
+                  met ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {getRequirementText(key)}
+              </Typography>
+            </ListItem>
+          ))}
+        </List>
+      </div>
+    );
+  };
 
   return (
     <div className="p-6 mx-auto max-w-7xl">
@@ -299,9 +423,7 @@ const Usuarios = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Contraseña"
                 value={newUser.password}
-                onChange={(e) =>
-                  setNewUser({ ...newUser, password: e.target.value })
-                }
+                onChange={(e) => handlePasswordChange(e.target.value)}
                 required
               />
               <Button
@@ -320,6 +442,11 @@ const Usuarios = () => {
                 )}
               </Button>
             </div>
+            {newUser.password && (
+              <PasswordRequirements
+                requirements={passwordValidation.requirements}
+              />
+            )}
           </div>
 
           <div>
@@ -341,7 +468,7 @@ const Usuarios = () => {
 
         <Button
           onClick={handleCreate}
-          disabled={loading}
+          disabled={loading || !passwordValidation.isValid}
           className="mt-4 bg-[var(--primary)]  text-background"
         >
           {loading ? "Procesando..." : "Registrar Usuario"}
@@ -400,7 +527,7 @@ const Usuarios = () => {
               type={showNewPassword ? "text" : "password"}
               label="Nueva Contraseña"
               value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
+              onChange={(e) => handleNewPasswordChange(e.target.value)}
               required
             />
             <Button
@@ -416,6 +543,11 @@ const Usuarios = () => {
               )}
             </Button>
           </div>
+          {newPassword && (
+            <PasswordRequirements
+              requirements={passwordValidation.requirements}
+            />
+          )}
         </DialogBody>
         <DialogFooter>
           <Button
@@ -423,6 +555,17 @@ const Usuarios = () => {
             onClick={() => {
               setOpenChangePassDialog(false);
               setNewPassword("");
+              setPasswordValidation({
+                isValid: false,
+                requirements: {
+                  length: false,
+                  hasUpperCase: false,
+                  hasLowerCase: false,
+                  hasNumber: false,
+                  hasSymbol: false,
+                },
+                missingRequirements: [],
+              });
             }}
             className="mr-2"
           >
@@ -432,7 +575,7 @@ const Usuarios = () => {
             variant="gradient"
             color="blue"
             onClick={handleChangePassword}
-            disabled={loading || !newPassword}
+            disabled={loading || !newPassword || !passwordValidation.isValid}
           >
             {loading ? "Procesando..." : "Cambiar Contraseña"}
           </Button>

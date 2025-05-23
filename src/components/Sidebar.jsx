@@ -168,20 +168,20 @@ export function SidebarWithBurgerMenu() {
               <AccordionBody className="py-1 ">
                 <List className="p-0 text-text">
                   <ListItem
-                    onClick={() => handleNavigate("dashboard/productos")}
-                  >
-                    <ListItemPrefix>
-                      <RectangleStackIcon strokeWidth={3} className="w-5 h-5" />
-                    </ListItemPrefix>
-                    Productos
-                  </ListItem>
-                  <ListItem
                     onClick={() => handleNavigate("dashboard/animales")}
                   >
                     <ListItemPrefix>
                       <GiCow strokeWidth={3} className="w-5 h-5" />
                     </ListItemPrefix>
                     Animales
+                  </ListItem>
+                  <ListItem
+                    onClick={() => handleNavigate("dashboard/productos")}
+                  >
+                    <ListItemPrefix>
+                      <RectangleStackIcon strokeWidth={3} className="w-5 h-5" />
+                    </ListItemPrefix>
+                    Productos
                   </ListItem>
                   <ListItem onClick={() => handleNavigate("dashboard/ventas")}>
                     <ListItemPrefix>
