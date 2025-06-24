@@ -36,7 +36,6 @@ const AnimalesDisponibles = () => {
     categoria: "",
     edadMin: "",
     edadMax: "",
-    fechaIngreso: null
   });
 
   // Categorías disponibles
@@ -159,19 +158,8 @@ const AnimalesDisponibles = () => {
             />
           </div>
           
-          <div>
-            <Typography variant="small" className="mb-1 font-medium">
-              Fecha de ingreso
-            </Typography>
-            <DatePicker
-              selected={filters.fechaIngreso}
-              onChange={(date) => setFilters({...filters, fechaIngreso: date})}
-              className="w-full p-2 border rounded"
-              placeholderText="Filtrar por fecha"
-              dateFormat="dd/MM/yyyy"
-              isClearable
-            />
-          </div>
+          
+          
         </CardBody>
       </Card>
 
