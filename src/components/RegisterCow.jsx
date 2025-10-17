@@ -1,9 +1,11 @@
 import { ethers } from "ethers";
 import { useState } from "react";
 import PropTypes from "prop-types";
+// eslint-disable-next-line no-unused-vars
+import TransactionViewer from "./TransactionViewer";
 
 const providerUrl =
-  "https://json-rpc.7ho40m7mw5bl29ce988fvqjvn.blockchainnodeengine.com?key=AIzaSyBK4kHy9qhxgVYCHqhgH94b8rNxXZ5IVH4";
+  "https://json-rpc.3mld1t0b8ajpn9kjru00d8kxs.blockchainnodeengine.com?key=AIzaSyCLFlfiLebKbwrD5F1qKh_KM0-6pYTUZUs";
 const provider = new ethers.JsonRpcProvider(providerUrl);
 
 // ⏳ Función para esperar el receipt con reintentos
@@ -43,20 +45,15 @@ function RegisterCow({ onRegister }) {
       const privateKey =
         "e761dfec18fd54a4a5ea4de01bdc903aa1761b1fdf70dbdb4a024f61aeffeb8d"; // ⚠️ Testnet key, usa solo para pruebas
       const wallet = new ethers.Wallet(privateKey, provider);
-
       const data = ethers.toUtf8Bytes(JSON.stringify(cow));
-
       const tx = await wallet.sendTransaction({
         to: wallet.address,
         value: 0,
         data: ethers.hexlify(data),
       });
-
       setStatus(`📤 Transacción enviada: ${tx.hash}`);
-
       // Esperamos a que el nodo indexe la transacción
       await waitForTransactionWithRetry(provider, tx.hash);
-
       setStatus(`✅ Transacción confirmada: ${tx.hash}`);
       onRegister(); // Refresca la lista
     } catch (error) {
@@ -106,6 +103,7 @@ function RegisterCow({ onRegister }) {
       </button>
 
       <p className="mt-4 text-center">{status}</p>
+      {/*<TransactionViewer />*/}
     </div>
   );
 }
