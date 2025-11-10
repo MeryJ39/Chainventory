@@ -1,202 +1,311 @@
-import { Button, Typography, Chip } from "@material-tailwind/react";
+import {
+  Button,
+  Typography,
+  Chip,
+  Card,
+  CardBody,
+} from "@material-tailwind/react";
 import {
   BriefcaseIcon,
   UserGroupIcon,
   HeartIcon,
-} from "@heroicons/react/24/solid"; // Importa los iconos
-import mainBanner from "../assets/banner1.jpg"; // Importa la imagen local (ajusta la ruta)
+  ShieldCheckIcon,
+  TruckIcon,
+  ChartBarIcon,
+  PhoneIcon, 
+} from "@heroicons/react/24/solid";
+import mainBanner from "../assets/banner2.jpeg";
 
 const Home = () => {
-  console.log("mainBanner URL:", mainBanner); // Comprueba la URL en la consola
+  const features = [
+    {
+      icon: <ShieldCheckIcon className="w-12 h-12" />,
+      title: "Genética Superior",
+      description:
+        "Animales con pedigrí certificado y características genéticas sobresalientes para optimizar su producción ganadera.",
+    },
+    {
+      icon: <HeartIcon className="w-12 h-12" />,
+      title: "Sanidad Garantizada",
+      description:
+        "Bovinos criados con estrictos protocolos sanitarios y certificaciones veterinarias vigentes.",
+    },
+    {
+      icon: <UserGroupIcon className="w-12 h-12" />,
+      title: "Manejo Profesional",
+      description:
+        "Equipo técnico especializado con años de experiencia en manejo y bienestar animal.",
+    },
+    {
+      icon: <ChartBarIcon className="w-12 h-12" />,
+      title: "Productividad Comprobada",
+      description:
+        "Registros genealógicos y de producción que respaldan la calidad de nuestros ejemplares.",
+    },
+  ];
+
+  const steps = [
+    {
+      number: "01",
+      title: "Contacto Inicial",
+      description:
+        "Establezca comunicación con nuestro equipo comercial para conocer disponibilidad y características del ganado.",
+    },
+    {
+      number: "02",
+      title: "Evaluación y Selección",
+      description:
+        "Nuestros especialistas le asesorarán en la selección de ejemplares según sus requerimientos específicos.",
+    },
+    {
+      number: "03",
+      title: "Cotización Formal",
+      description:
+        "Reciba una propuesta comercial detallada con información completa de los animales y condiciones de venta.",
+    },
+    {
+      number: "04",
+      title: "Logística y Entrega",
+      description:
+        "Coordinamos el transporte certificado y la entrega con toda la documentación requerida.",
+    },
+  ];
+
+  const stats = [
+    { value: "15+", label: "Años de Experiencia" },
+    { value: "2,500+", label: "Bovinos Comercializados" },
+    { value: "98%", label: "Satisfacción del Cliente" },
+    { value: "100%", label: "Certificación Sanitaria" },
+  ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       {/* Hero Section */}
       <section
-        className="relative h-[calc(100vh-55px)] bg-cover bg-center"
+        className="relative h-[80vh] bg-cover bg-center"
         style={{ backgroundImage: `url(${mainBanner})` }}
       >
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-12 bg-black/50">
-          {" "}
-          {/* Overlay y centrado */}
-          <div className="text-center text-white">
-            <Typography variant="h3" className="mb-6 text-4xl font-extrabold">
-              Bovinos de calidad superior para su negocio ganadero
-            </Typography>
-            <Typography variant="paragraph" className="mb-8 text-lg font-light">
-              Genética selecta, manejo experto y tradición ganadera a su
-              servicio.
-            </Typography>
-            <Button className="mb-4 bg-background text-text">
-              Contáctenos para conocer nuestro catálogo
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us */}
-      <section className="py-12 bg-background bg-[url('/path/to/your/texture.jpg')] bg-cover bg-center bg-fixed">
-        {" "}
-        {/* Ajustes de estilos */}
-        <div className="container mx-auto">
-          {" "}
-          {/* Contenedor centrado */}
-          <Typography
-            variant="h4"
-            className="mb-4 font-bold text-center text-text"
-          >
-            {" "}
-            {/* Título */}
-            Nuestra pasión: la ganadería de excelencia
-          </Typography>
-          <div className="max-w-3xl mx-auto text-center text-text">
-            {" "}
-            {/* Contenedor de texto */}
-            <Typography>
-              Somos una empresa ganadera con [número] años de experiencia en la
-              cría y selección de bovinos de las mejores razas. Nuestro
-              compromiso es ofrecer animales de alta calidad genética, sanos y
-              productivos, que impulsen el éxito de su negocio.
-            </Typography>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Features */}
-      <section className="py-12 bg-text">
-        <div className="container mx-auto">
-          <Typography
-            variant="h4"
-            className="mb-8 font-bold text-center text-background"
-          >
-            Nuestros bovinos: calidad y productividad garantizada
-          </Typography>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="text-center">
-              <BriefcaseIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40">
+          <div className="container flex flex-col justify-center h-full px-6 mx-auto md:px-12 lg:px-24">
+            <div className="max-w-3xl">
+              <Chip
+                value="Calidad Certificada"
+                className="mb-6 font-semibold bg-secondary text-background"
+              />
               <Typography
-                variant="h6"
-                className="mb-2 font-bold text-background"
+                variant="h1"
+                className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl"
               >
-                Genética superior
+                Sistema Profesional de Gestión Ganadera
               </Typography>
-              <Typography className="text-background">
-                Animales con pedigrí y características genéticas sobresalientes.
-              </Typography>
-            </div>
-            <div className="text-center">
-              <HeartIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
               <Typography
-                variant="h6"
-                className="mb-2 font-bold text-background"
+                variant="lead"
+                className="mb-8 text-lg font-light leading-relaxed text-white/90 md:text-xl"
               >
-                Sanidad y bienestar
+                Comercialización de bovinos de alta genética con respaldo
+                técnico y sanitario. Compromiso con la excelencia en cada etapa
+                del proceso.
               </Typography>
-              <Typography className="text-background">
-                {" "}
-                Bovinos criados en un entorno natural, con estrictos controles
-                sanitarios.
-              </Typography>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button
+                  size="lg"
+                  className="flex items-center gap-3 bg-secondary text-background"
+                >
+                  <PhoneIcon className="w-5 h-5" />
+                  Solicitar Información
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outlined"
+                  className="flex items-center gap-3 text-white border-white hover:bg-white/10"
+                >
+                  <BriefcaseIcon className="w-5 h-5" />
+                  Ver Catálogo
+                </Button>
+              </div>
             </div>
-            <div className="text-center">
-              <UserGroupIcon className="w-12 h-12 mx-auto mb-4 text-primary" />
-              <Typography
-                variant="h6"
-                className="mb-2 font-bold text-background"
-              >
-                Manejo profesional
-              </Typography>
-              <Typography className="text-background">
-                Cuidado integral de los animales por expertos en ganadería.
-              </Typography>
-            </div>
-            {/* ... (Más características) */}
           </div>
         </div>
       </section>
 
-      <section className="w-full p-10 bg-background">
-        {" "}
-        {/* Intercambiado bg-gray-800 y dark:bg-transparent */}
-        <Typography
-          variant="h4"
-          className="mb-4 font-bold text-center text-text" /* Intercambiado text-white y dark:text-gray-900 */
-        >
-          Adquiera sus bovinos en 4 sencillos pasos
-        </Typography>
-        <div className="grid grid-cols-1 gap-8 text-text md:grid-cols-2 lg:grid-cols-4">
-          <div className="text-center text-text">
-            {" "}
-            {/* Intercambiado text-white y dark:text-gray-900 */}
-            <Chip
-              variant="filled"
-              color="blue"
-              value="1"
-              className="mb-4 text-text bg-secondary " /* Intercambiado bg-blue-700 y dark:bg-blue-500 */
-            />
-            <Typography variant="h6" className="mb-2 font-bold">
-              Contacto
+      {/* Stats Section */}
+      <section className="relative z-10 -mt-20">
+        <div className="container px-6 mx-auto md:px-12 lg:px-24">
+          <Card className="shadow-2xl bg-background">
+            <CardBody className="p-8">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <Typography
+                      variant="h2"
+                      className="mb-2 text-4xl font-bold text-primary"
+                    >
+                      {stat.value}
+                    </Typography>
+                    <Typography
+                      variant="small"
+                      className="font-semibold tracking-wider uppercase text-text/70"
+                    >
+                      {stat.label}
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </CardBody>
+          </Card>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 bg-background">
+        <div className="container px-6 mx-auto md:px-12 lg:px-24">
+          <div className="max-w-4xl mx-auto text-center mb-14">
+            <Typography
+              variant="small"
+              className="mb-3 font-bold tracking-widest uppercase text-primary"
+            >
+              Nuestra Empresa
             </Typography>
-            <Typography className="">
-              {" "}
-              {/* Intercambiado text-gray-300 y dark:text-gray-700 */}
-              Comuníquese con nosotros para conocer nuestro catálogo.
+            <Typography
+              variant="h2"
+              className="mb-6 text-4xl font-bold text-text"
+            >
+              Excelencia en Ganadería Bovina
+            </Typography>
+            <Typography
+              variant="paragraph"
+              className="text-lg leading-relaxed text-text/80"
+            >
+              Empresa especializada en la cría, selección y comercialización de
+              bovinos de élite. Contamos con infraestructura de vanguardia,
+              equipo técnico calificado y un riguroso programa de mejoramiento
+              genético que garantiza animales de superior calidad productiva y
+              reproductiva.
             </Typography>
           </div>
 
-          <div className="text-center ">
-            <Chip
-              variant="filled"
-              color="blue"
-              value="2"
-              className="mb-4 text-text bg-secondary " /* Intercambiado bg-blue-700 y dark:bg-blue-500 */
-            />
-            <Typography variant="h6" className="mb-2 font-bold">
-              Selección
-            </Typography>
-            <Typography className="">
-              Escoja los bovinos que mejor se adapten a sus necesidades.
-            </Typography>
-          </div>
-
-          <div className="text-center ">
-            <Chip
-              variant="filled"
-              color="blue"
-              value="3"
-              className="mb-4 text-text bg-secondary " /* Intercambiado bg-blue-700 y dark:bg-blue-500 */
-            />
-            <Typography variant="h6" className="mb-2 font-bold">
-              Cotización
-            </Typography>
-            <Typography className="">
-              Reciba una cotización detallada de los animales seleccionados.
-            </Typography>
-          </div>
-
-          <div className="text-center ">
-            <Chip
-              variant="filled"
-              color="blue"
-              value="4"
-              className="mb-4 text-text bg-secondary " /* Intercambiado bg-blue-700 y dark:bg-blue-500 */
-            />
-            <Typography variant="h6" className="mb-2 font-bold">
-              Entrega
-            </Typography>
-            <Typography className="">
-              Coordinamos la entrega de los bovinos a su destino.
-            </Typography>
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature, index) => (
+              <Card
+                key={index}
+                className="transition-all duration-300 border shadow-md hover:shadow-xl hover:-translate-y-2 border-text/10 bg-background"
+              >
+                <CardBody className="p-8 text-center">
+                  <div className="flex justify-center mb-4 text-primary">
+                    {feature.icon}
+                  </div>
+                  <Typography variant="h5" className="mb-3 font-bold text-text">
+                    {feature.title}
+                  </Typography>
+                  <Typography
+                    variant="paragraph"
+                    className="leading-relaxed text-text/70"
+                  >
+                    {feature.description}
+                  </Typography>
+                </CardBody>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-12 text-center bg-accent text-background">
-        <Typography variant="h4" className="mb-4 font-bold">
-          ¿Listo para invertir en genética bovina de primer nivel?
-        </Typography>
-        <Button color="white">¡Contáctenos hoy mismo!</Button>
+      {/* Divider */}
+      <div className="border-t border-text/10"></div>
+
+      {/* Process Section */}
+      <section className="py-20 bg-background">
+        <div className="container px-6 mx-auto md:px-12 lg:px-24">
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <Typography
+              variant="small"
+              className="mb-3 font-bold tracking-widest uppercase text-primary"
+            >
+              Proceso de Adquisición
+            </Typography>
+            <Typography variant="h2" className="text-4xl font-bold text-text">
+              Metodología Profesional en 4 Etapas
+            </Typography>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {steps.map((step, index) => (
+                <Card
+                  key={index}
+                  className="overflow-hidden transition-all duration-300 border shadow-lg hover:shadow-2xl border-text/10 bg-background"
+                >
+                  <CardBody className="p-8">
+                    <div className="flex items-start gap-6">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-secondary">
+                          <Typography
+                            variant="h4"
+                            className="font-bold text-background"
+                          >
+                            {step.number}
+                          </Typography>
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <Typography
+                          variant="h5"
+                          className="mb-3 font-bold text-text"
+                        >
+                          {step.title}
+                        </Typography>
+                        <Typography
+                          variant="paragraph"
+                          className="leading-relaxed text-text/70"
+                        >
+                          {step.description}
+                        </Typography>
+                      </div>
+                    </div>
+                  </CardBody>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 text-center bg-accent text-background">
+        <div className="container px-6 mx-auto md:px-12">
+          <div className="max-w-3xl mx-auto">
+            <BriefcaseIcon className="w-16 h-16 mx-auto mb-6 opacity-90" />
+            <Typography variant="h2" className="mb-4 text-4xl font-bold">
+              Invierta en Genética de Excelencia
+            </Typography>
+            <Typography
+              variant="lead"
+              className="mb-8 text-lg leading-relaxed opacity-90"
+            >
+              Nuestro equipo técnico está disponible para asesorarlo en la
+              selección de bovinos que maximicen la rentabilidad de su operación
+              ganadera.
+            </Typography>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Button
+                size="lg"
+                className="flex items-center justify-center gap-3 bg-background text-accent"
+              >
+                <PhoneIcon className="w-5 h-5" />
+                Contactar Ahora
+              </Button>
+              <Button
+                size="lg"
+                variant="outlined"
+                className="flex items-center justify-center gap-3 border-2 text-background border-background hover:bg-background/10"
+              >
+                <TruckIcon className="w-5 h-5" />
+                Solicitar Cotización
+              </Button>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

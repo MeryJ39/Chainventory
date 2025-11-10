@@ -1,23 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --text: #0d0d0d;
-  --background: #fff5f0;
-  --primary: #743e2a;
-  --secondary: #bf7b40;
-  --accent: #354037;
+  /* Paleta de azules profesionales para inventario */
+  --text: #0f172a;           /* Texto principal - slate 900 */
+  --background: #f8fafc;     /* Fondo claro - slate 50 */
+  --primary: #1e40af;        /* Azul primario intenso - blue 700 */
+  --secondary: #3b82f6;      /* Azul secundario - blue 500 */
+  --accent: #60a5fa;         /* Azul acento claro - blue 400 */
+  --surface: #ffffff;        /* Superficie de tarjetas */
+  --border: #e2e8f0;         /* Bordes suaves - slate 200 */
+  --success: #10b981;        /* Verde para éxito */
+  --warning: #f59e0b;        /* Amarillo para advertencias */
+  --danger: #ef4444;         /* Rojo para alertas */
+  --info: #06b6d4;           /* Cyan para información */
 }
+
 .dark {
-  --text: #f2f2f2;
-  --background: #0f0500;
-  --primary: #d59f8b;
-  --secondary: #bf7b40;
-  --accent: #bfcac1;
+  /* Modo oscuro con tonos azules nocturnos */
+  --text: #e2e8f0;           /* Texto claro */
+  --background: #0f172a;     /* Fondo oscuro profundo */
+  --primary: #3b82f6;        /* Azul brillante */
+  --secondary: #60a5fa;      /* Azul más claro */
+  --accent: #93c5fd;         /* Azul acento suave */
+  --surface: #1e293b;        /* Superficie de tarjetas oscuras */
+  --border: #334155;         /* Bordes oscuros */
+  --success: #34d399;        
+  --warning: #fbbf24;        
+  --danger: #f87171;         
+  --info: #22d3ee;           
 }
 
 body {
   background-color: var(--background);
   color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.011em;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.venta-table {
+  background-color: var(--background);
+  color: var(--text);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.venta-table thead tr {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.venta-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.venta-table tbody tr:hover {
+  background-color: var(--accent);
+  color: var(--text);
+  transition: background-color 0.2s ease;
+}
+
+.venta-table td, .venta-table th {
+  border-color: var(--secondary);
+}
+
+.css-y2ff7i-MuiPaper-root-MuiTableContainer-root {
+    background-color:  var(--background);
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Animaciones suaves */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
 }

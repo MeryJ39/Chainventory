@@ -335,7 +335,9 @@ const Analiticas = () => {
         <div className="p-4 text-center rounded-lg shadow-md bg-background">
           <FiDollarSign className="mx-auto text-4xl text-green-500" />
           <h3 className="text-lg font-semibold text-text">Total Ventas (Bs)</h3>
-          <p className="text-2xl font-bold">{stats.totalVentasBs.toFixed(2)}</p>
+          <p className="text-2xl font-bold">
+            {(stats.totalVentasBs / 100).toFixed(2)}
+          </p>
         </div>
 
         <div className="p-4 text-center rounded-lg shadow-md bg-background">
@@ -355,25 +357,6 @@ const Analiticas = () => {
 
       {/* Gráficos */}
       <div className="grid grid-cols-1 gap-6 mt-6 md:grid-cols-2">
-        <div className="p-4 rounded-lg shadow-md bg-background">
-          <h3 className="mb-2 text-lg font-semibold text-text">
-            Ventas por Fecha
-          </h3>
-          <Line
-            data={{
-              labels: stats.ventasPorFecha.map(([fecha]) => fecha),
-              datasets: [
-                {
-                  label: "Ventas",
-                  data: stats.ventasPorFecha.map(([, cantidad]) => cantidad),
-                  borderColor: "rgb(75, 192, 192)",
-                  tension: 0.1,
-                },
-              ],
-            }}
-          />
-        </div>
-
         <div className="p-4 rounded-lg shadow-md bg-background ">
           <h3 className="mb-2 text-lg font-semibold text-text ">
             Categorías de Animales
@@ -405,6 +388,25 @@ const Analiticas = () => {
                   label: "Estatus",
                   data: stats.estatusAnimales.map(([, cantidad]) => cantidad),
                   backgroundColor: ["#36a2eb", "#ff6384"],
+                },
+              ],
+            }}
+          />
+        </div>
+
+        <div className="p-4 rounded-lg shadow-md bg-background">
+          <h3 className="mb-2 text-lg font-semibold text-text">
+            Ventas por Fecha
+          </h3>
+          <Line
+            data={{
+              labels: stats.ventasPorFecha.map(([fecha]) => fecha),
+              datasets: [
+                {
+                  label: "Ventas",
+                  data: stats.ventasPorFecha.map(([, cantidad]) => cantidad),
+                  borderColor: "rgb(75, 192, 192)",
+                  tension: 0.1,
                 },
               ],
             }}

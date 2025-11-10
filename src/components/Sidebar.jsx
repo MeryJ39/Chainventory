@@ -32,7 +32,7 @@ import {
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-import { FaCow } from "react-icons/fa6";
+import { FaWarehouse } from "react-icons/fa6";
 import ThemeSwitch from "./ThemeSwitch";
 import { GiCow } from "react-icons/gi";
 
@@ -73,7 +73,7 @@ export function SidebarWithBurgerMenu() {
           className="h-[calc(100vh-2rem)] w-full p-4"
         >
           <div className="flex items-center gap-4 p-4 mb-2 ">
-            <FaCow className="w-8 h-8 text-text" />
+            <FaWarehouse className="w-8 h-8 text-text" />
             <Typography
               variant="h5"
               className=" text-text"
